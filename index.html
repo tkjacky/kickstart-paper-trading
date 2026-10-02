@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kickstart 紙上交易 Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --panel2: #182338;
+      --border: #243049;
+      --text: #e8eefc;
+      --muted: #93a0b8;
+      --accent: #5b8cff;
+      --green: #2dd4a8;
+      --red: #f07178;
+      --amber: #f0b429;
+      --chip: #1e2a44;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "SF Pro Text", "Segoe UI", "PingFang HK", "Noto Sans TC", system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1a2744 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px 8px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 18, 32, 0.85);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    button:hover { filter: brightness(1.08); }
+    button.secondary {
+      background: var(--chip);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .badge .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 8px var(--amber);
+    }
+    .badge.sim .dot { background: var(--amber); }
+    main {
+      padding: 20px 24px 40px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .kpi {
+      background: linear-gradient(180deg, var(--panel2), var(--panel));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+    .kpi .label { color: var(--muted); font-size: 0.8rem; margin-bottom: 6px; }
+    .kpi .value { font-size: 1.35rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .kpi .hint { color: var(--muted); font-size: 0.75rem; margin-top: 4px; }
+    .pos { color: var(--green); }
+    .neg { color: var(--red); }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 900px) {
+      .grid2 { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px 18px;
+      overflow: hidden;
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      font-weight: 650;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .card h2 span { color: var(--muted); font-weight: 500; font-size: 0.8rem; }
+    .chart-wrap { position: relative; height: 280px; }
+    .chart-wrap.short { height: 240px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      font-variant-numeric: tabular-nums;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: none; }
+    tr:hover td { background: rgba(91, 140, 255, 0.06); }
+    .table-scroll { overflow-x: auto; }
+    .empty {
+      color: var(--muted);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .err {
+      background: rgba(240, 113, 120, 0.12);
+      border: 1px solid rgba(240, 113, 120, 0.4);
+      color: #ffc9cc;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: none;
+    }
+    footer {
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 0 24px 24px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    code {
+      background: var(--chip);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Kickstart 紙上交易 Dashboard</h1>
+      <div class="sub" id="metaLine">載入中…</div>
+    </div>
+    <div class="actions">
+      <span class="badge sim" id="statusBadge"><span class="dot"></span> simulation</span>
+      <button type="button" class="secondary" id="btnAuto" title="每 30 秒自動刷新">Auto: OFF</button>
+      <button type="button" id="btnRefresh">刷新 Refresh</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="err" id="errBox"></div>
+
+    <section class="kpis" id="kpis">
+      <div class="kpi"><div class="label">當前權益 Equity</div><div class="value" id="kpiEquity">—</div><div class="hint" id="kpiEquityHint">起始 10,000 USDT</div></div>
+      <div class="kpi"><div class="label">已實現損益 Realized PnL</div><div class="value" id="kpiPnl">—</div><div class="hint" id="kpiPnlHint">淨利（含手續費）</div></div>
+      <div class="kpi"><div class="label">開倉持倉 Open</div><div class="value" id="kpiOpen">—</div><div class="hint">最多 2 倉</div></div>
+      <div class="kpi"><div class="label">已平倉 Closed</div><div class="value" id="kpiClosed">—</div><div class="hint" id="kpiWinHint">勝率 —</div></div>
+      <div class="kpi"><div class="label">回報 Return</div><div class="value" id="kpiRet">—</div><div class="hint">相對起始權益</div></div>
+    </section>
+
+    <section class="grid2">
+      <div class="card">
+        <h2>權益曲線 Equity Curve <span>起始 → 每次平倉後</span></h2>
+        <div class="chart-wrap"><canvas id="equityChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h2>累計損益 Cumulative PnL <span>淨利 USDT</span></h2>
+        <div class="chart-wrap"><canvas id="cumPnlChart"></canvas></div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-bottom:18px">
+      <h2>每筆已實現損益 Trade PnL <span>bar = net_pnl_usdt</span></h2>
+      <div class="chart-wrap short"><canvas id="pnlBarChart"></canvas></div>
+    </section>
+
+    <section class="card" style="margin-bottom:18px">
+      <h2>開倉持倉 Open Positions <span id="openCount"></span></h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Pair</th>
+              <th>Side</th>
+              <th>Opened (HKT)</th>
+              <th>Entry</th>
+              <th>Stop</th>
+              <th>TP (2R)</th>
+              <th>Size</th>
+              <th>Notional</th>
+              <th>Risk USDT</th>
+            </tr>
+          </thead>
+          <tbody id="openBody"></tbody>
+        </table>
+        <div class="empty" id="openEmpty" style="display:none">暫無開倉</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>已平倉 Closed Trades <span id="closedCount"></span></h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Pair</th>
+              <th>Opened</th>
+              <th>Closed</th>
+              <th>Entry</th>
+              <th>Exit</th>
+              <th>Reason</th>
+              <th>Gross PnL</th>
+              <th>Fees</th>
+              <th>Net PnL</th>
+              <th>R</th>
+              <th>Equity After</th>
+            </tr>
+          </thead>
+          <tbody id="closedBody"></tbody>
+        </table>
+        <div class="empty" id="closedEmpty" style="display:none">暫無平倉紀錄</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    本地紙上交易視覺化 · 讀取 <code>journal.json</code> · 唔會同步 Google Drive · 唔會下真實單 ·
+    用 <code>./dashboard/serve.sh</code> 或喺專案根目錄跑 <code>python3 -m http.server 8765</code> 後開
+    <code>http://127.0.0.1:8765/dashboard/</code>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
