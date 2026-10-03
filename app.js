@@ -309,7 +309,7 @@
       const open = j.open_positions || [];
 
       $("statusBadge").innerHTML = `<span class="dot"></span> ${esc(j.status || "simulation")}`;
-      $("metaLine").textContent = `${j.strategy || "Kickstart"} · 更新 ${j.last_updated || "—"} · TZ ${j.timezone || "Asia/Hong_Kong"}`;
+      $("metaLine").textContent = `更新 ${j.last_updated || "—"}`;
 
       renderKpis(j, closed);
       renderOpen(open);
