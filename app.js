@@ -184,14 +184,18 @@
 
   function renderKpis(j, closed) {
     const start = j.starting_equity;
-    const eq = j.equity;
+    const eq = j.equity_current ?? j.equity;
     const realized = closed.reduce((s, t) => s + (t.net_pnl_usdt || 0), 0);
     const ret = start ? ((eq - start) / start) * 100 : 0;
     const wins = closed.filter((t) => (t.net_pnl_usdt || 0) > 0).length;
     const wr = closed.length ? (wins / closed.length) * 100 : null;
 
     $("kpiEquity").textContent = `${fmtNum(eq)} ${j.currency || "USDT"}`;
-    $("kpiEquityHint").textContent = `起始 ${fmtNum(start)} ${j.currency || "USDT"}`;
+    if (j.equity_current != null) {
+      $("kpiEquityHint").textContent = `起始 ${fmtNum(start)}｜含未實現 marked-to-market（會計 ${fmtNum(j.equity)}）`;
+    } else {
+      $("kpiEquityHint").textContent = `起始 ${fmtNum(start)} ${j.currency || "USDT"}`;
+    }
 
     const pnlEl = $("kpiPnl");
     pnlEl.textContent = `${realized >= 0 ? "+" : ""}${fmtNum(realized)}`;
