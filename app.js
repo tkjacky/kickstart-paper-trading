@@ -223,7 +223,6 @@
     for (const p of positions) {
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${esc(p.id)}</td>
         <td>${esc(p.pair)}</td>
         <td>${esc(p.side)}</td>
         <td>${esc(p.opened_at || p.opened_at_iso)}</td>
@@ -252,7 +251,6 @@
       const tr = document.createElement("tr");
       const net = t.net_pnl_usdt;
       tr.innerHTML = `
-        <td>${esc(t.id)}</td>
         <td>${esc(t.pair)}</td>
         <td>${esc(t.opened_at || "")}</td>
         <td>${esc(t.closed_at || "")}</td>
