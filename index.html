@@ -28,12 +28,7 @@
       min-height: 100vh;
     }
     header {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 24px 8px;
+      padding: 20px 24px 12px;
       border-bottom: 1px solid var(--border);
       background: rgba(11, 18, 32, 0.85);
       backdrop-filter: blur(8px);
@@ -42,10 +37,17 @@
       z-index: 10;
     }
     header h1 {
-      margin: 0;
+      margin: 0 0 12px;
       font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: 0.02em;
+    }
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
     }
     .strategy-select {
       appearance: none;
@@ -93,6 +95,13 @@
       margin-top: 4px;
     }
     .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .update-time {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-left: auto;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
     button {
       background: var(--accent);
       color: #fff;
@@ -164,6 +173,23 @@
       padding: 14px 16px 18px;
       overflow: hidden;
     }
+    .strategy-panel {
+      background: #121a2b;
+      border: 1px solid #243049;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+    }
+    .strategy-panel h2 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      font-weight: 650;
+    }
+    .strategy-panel p {
+      margin: 0;
+      line-height: 1.6;
+    }
+    .strategy-panel p + p { margin-top: 6px; }
     .card h2 {
       margin: 0 0 12px;
       font-size: 1rem;
@@ -223,23 +249,28 @@
 </head>
 <body>
   <header>
-    <div>
-      <h1>
-        <label class="sr-only" for="strategySelect">Strategy</label>
-        <select id="strategySelect" class="strategy-select" aria-label="Strategy">
-          <option value="kickstart-v1.1" selected>Trend + Pullback (Long-only)</option>
-        </select>
-      </h1>
-      <div class="sub" id="metaLine">載入中…</div>
-    </div>
-    <div class="actions">
+    <h1>Kickstart 紙上交易 Dashboard</h1>
+    <div class="header-row">
+      <label class="sr-only" for="strategySelect">Strategy</label>
+      <select id="strategySelect" class="strategy-select" aria-label="Strategy">
+        <option value="kickstart-v1.1" selected>Trend + Pullback (Long-only)</option>
+      </select>
       <span class="badge sim" id="statusBadge"><span class="dot"></span> simulation</span>
-      <button type="button" class="secondary" id="btnAuto" title="每 30 秒自動刷新">Auto: OFF</button>
-      <button type="button" id="btnRefresh">刷新 Refresh</button>
+      <div class="actions">
+        <button type="button" class="secondary" id="btnAuto" title="每 30 秒自動刷新">Auto: OFF</button>
+        <button type="button" id="btnRefresh">刷新 Refresh</button>
+      </div>
+      <div class="update-time" id="metaLine">更新 — HKT</div>
     </div>
   </header>
 
   <main>
+    <section class="strategy-panel" aria-labelledby="strategyPanelTitle">
+      <h2 id="strategyPanelTitle">策略</h2>
+      <p>買：4 小時收盤高過 EMA50，ADX ≥ 20 而且升緊，最近 12 根穿越 EMA20 不多過 3 次，然後回調掂到 EMA20，收盤再站上至少 0.15%。</p>
+      <p>賣：止蝕（回調低點或 1.5×ATR，用較近）或者止賺 2R，邊個先到就賣。</p>
+    </section>
+
     <div class="err" id="errBox"></div>
 
     <section class="kpis" id="kpis">

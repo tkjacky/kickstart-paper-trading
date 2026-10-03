@@ -309,7 +309,8 @@
       const open = j.open_positions || [];
 
       $("statusBadge").innerHTML = `<span class="dot"></span> ${esc(j.status || "simulation")}`;
-      $("metaLine").textContent = `更新 ${j.last_updated || "—"}`;
+      const updated = String(j.last_updated || "—").replace(/\s+(?:HKT|UTC|GMT)$/, "");
+      $("metaLine").textContent = `更新 ${updated} HKT`;
 
       renderKpis(j, closed);
       renderOpen(open);
