@@ -308,7 +308,7 @@
       const closed = sortClosed(j.closed_trades || []);
       const open = j.open_positions || [];
 
-      $("statusBadge").innerHTML = `<span class="dot"></span> ${esc(j.status || "simulation")}`;
+      $("statusBadge").textContent = "Simulation";
       const updated = String(j.last_updated || "—").replace(/\s+(?:HKT|UTC|GMT)$/, "");
       $("metaLine").textContent = `更新 ${updated} HKT`;
 
@@ -326,7 +326,7 @@
 
   function setAuto(on) {
     autoOn = on;
-    $("btnAuto").textContent = `Auto: ${on ? "ON" : "OFF"}`;
+    $("btnAuto").textContent = `Auto: ${on ? "On" : "Off"}`;
     if (autoTimer) {
       clearInterval(autoTimer);
       autoTimer = null;

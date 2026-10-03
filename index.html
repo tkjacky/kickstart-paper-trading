@@ -36,11 +36,16 @@
       top: 0;
       z-index: 10;
     }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
     header h1 {
-      margin: 0 0 12px;
+      margin: 0;
       font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: 0.02em;
+      white-space: nowrap;
     }
     .header-row {
       display: flex;
@@ -94,7 +99,7 @@
       font-size: 0.85rem;
       margin-top: 4px;
     }
-    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-left: auto; }
     .update-time {
       color: var(--muted);
       font-size: 0.85rem;
@@ -105,7 +110,7 @@
     button {
       background: var(--accent);
       color: #fff;
-      border: none;
+      border: 1px solid var(--border);
       border-radius: 8px;
       padding: 8px 14px;
       font-weight: 600;
@@ -176,18 +181,30 @@
     .strategy-panel {
       background: #121a2b;
       border: 1px solid #243049;
-      border-radius: 14px;
+      border-radius: 12px;
       padding: 14px 16px;
       margin-bottom: 18px;
     }
+    .strategy-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
     .strategy-panel h2 {
-      margin: 0 0 10px;
+      margin: 0;
       font-size: 1rem;
       font-weight: 650;
+    }
+    .strategy-panel .strategy-select {
+      margin: 0;
+      font-weight: 500;
     }
     .strategy-panel p {
       margin: 0;
       line-height: 1.6;
+      text-align: left;
+      white-space: pre-wrap;
     }
     .strategy-panel p + p { margin-top: 6px; }
     .card h2 {
@@ -249,26 +266,30 @@
 </head>
 <body>
   <header>
-    <h1>Kickstart 紙上交易 Dashboard</h1>
-    <div class="header-row">
-      <label class="sr-only" for="strategySelect">Strategy</label>
-      <select id="strategySelect" class="strategy-select" aria-label="Strategy">
-        <option value="kickstart-v1.1" selected>Trend + Pullback (Long-only)</option>
-      </select>
-      <span class="badge sim" id="statusBadge"><span class="dot"></span> simulation</span>
-      <div class="actions">
-        <button type="button" class="secondary" id="btnAuto" title="每 30 秒自動刷新">Auto: OFF</button>
-        <button type="button" id="btnRefresh">刷新 Refresh</button>
+    <div class="header-inner">
+      <div class="header-row">
+        <h1>Kickstart 紙上交易 Dashboard</h1>
+        <div class="actions">
+          <button type="button" class="secondary" id="statusBadge">Simulation</button>
+          <button type="button" class="secondary" id="btnAuto" title="每 30 秒自動刷新">Auto: Off</button>
+          <button type="button" id="btnRefresh">Refresh</button>
+        </div>
+        <div class="update-time" id="metaLine">更新 — HKT</div>
       </div>
-      <div class="update-time" id="metaLine">更新 — HKT</div>
     </div>
   </header>
 
   <main>
     <section class="strategy-panel" aria-labelledby="strategyPanelTitle">
-      <h2 id="strategyPanelTitle">策略</h2>
-      <p>買：4 小時收盤高過 EMA50，ADX ≥ 20 而且升緊，最近 12 根穿越 EMA20 不多過 3 次，然後回調掂到 EMA20，收盤再站上至少 0.15%。</p>
-      <p>賣：止蝕（回調低點或 1.5×ATR，用較近）或者止賺 2R，邊個先到就賣。</p>
+      <div class="strategy-heading">
+        <h2 id="strategyPanelTitle">策略</h2>
+        <label class="sr-only" for="strategySelect">Strategy</label>
+        <select id="strategySelect" class="strategy-select" aria-label="Strategy">
+          <option value="kickstart-v1.1" selected>Trend + Pullback (Long-only)</option>
+        </select>
+      </div>
+      <p>買  收盤高過 EMA50，ADX ≥ 20 而且升緊，12 根穿越 EMA20 ≤ 3，回調後站上 0.15%。</p>
+      <p>賣  止蝕（回調低點或 1.5×ATR，用較近）或者止賺 2R，邊個先到就賣。</p>
     </section>
 
     <div class="err" id="errBox"></div>
