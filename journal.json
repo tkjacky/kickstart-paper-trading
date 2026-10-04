@@ -36,12 +36,12 @@
       "signal_candle": "2026-09-29 04:00",
       "signal_reason": "Bias bullish (4H close > EMA50); pullback touched EMA20 (low 2667.86 <= EMA20 2683.1096); close reclaimed above EMA20 (2688.71 > 2683.1096).",
       "fees_slippage_note": "0.1% round-trip applied at close",
-      "last_mark_price": 2695.06,
-      "last_mark_at": "2026-10-04 12:07:28 HKT",
-      "last_mark_at_iso": "2026-10-04T12:07:28.608438+08:00",
-      "unrealized_gross_usdt": 12.1968,
+      "last_mark_price": 2693.78,
+      "last_mark_at": "2026-10-04 13:09:27 HKT",
+      "last_mark_at_iso": "2026-10-04T13:09:27.521837+08:00",
+      "unrealized_gross_usdt": 9.7382,
       "unrealized_fees_usdt": 5.1643,
-      "unrealized_net_usdt": 7.0324
+      "unrealized_net_usdt": 4.5739
     }
   ],
   "closed_trades": [
@@ -5501,8 +5501,8 @@
       ]
     }
   ],
-  "last_updated": "2026-10-04 12:07:28 HKT",
-  "last_updated_iso": "2026-10-04T12:07:28.608438+08:00",
+  "last_updated": "2026-10-04 13:09:27 HKT",
+  "last_updated_iso": "2026-10-04T13:09:27.521837+08:00",
   "strategy_revisions": [
     {
       "version": "v1.1",
@@ -5510,6 +5510,6 @@
       "note": "Anti-chop ADX rising + EMA20 cross filter; reclaim >=0.15%; second-pair risk 0.5%. Applies to new entries only; open positions keep existing SL/TP."
     }
   ],
-  "equity_current": 9878.6938,
-  "last_mark_at": "2026-10-04 12:07:28 HKT"
+  "equity_current": 9876.2353,
+  "last_mark_at": "2026-10-04 13:09:27 HKT"
 }
