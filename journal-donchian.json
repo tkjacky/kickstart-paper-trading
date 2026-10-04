@@ -1,0 +1,110 @@
+{
+  "strategy": "Donchian 20/10 (Long-only)",
+  "book_id": "donchian-20-10",
+  "status": "simulation",
+  "separate_from": "kickstart-v1.1",
+  "created_at": "2026-10-04 18:34:22 HKT",
+  "created_at_iso": "2026-10-04T18:34:22.139359+08:00",
+  "timezone": "Asia/Hong_Kong",
+  "start_date_hkt": "2026-10-04",
+  "equity": 10000.0,
+  "equity_note": "This book's equity only. Do not mix with Kickstart journal.json.",
+  "currency": "USDT",
+  "starting_equity": 10000.0,
+  "fees_slippage_round_trip_pct": 0.1,
+  "fees_slippage_note": "Same as Kickstart: 0.1% of entry notional, applied once at close (not at entry). gross_pnl = (exit-entry)*qty; fees_usdt = entry_notional*0.001; net_pnl = gross-fees. r_multiple is gross/risk (a stop fill at the stop is -1R before fees).",
+  "risk_per_trade_pct": 1.0,
+  "risk_per_trade_pct_if_other_open": 0.5,
+  "max_open_positions": 2,
+  "max_new_entries_per_pair_per_hk_day": 1,
+  "leverage": null,
+  "direction": "long-only",
+  "universe": [
+    "BTC/USDT",
+    "ETH/USDT"
+  ],
+  "data_source": "https://data-api.binance.vision (Binance public market data)",
+  "candle_definition": "HKT calendar day built from six Binance 4h candles (00:00, 04:00, 08:00, 12:00, 16:00, 20:00 HKT). The day closes at 00:00 Asia/Hong_Kong. Do not use Binance interval=1d (that closes 00:00 UTC / 08:00 HKT).",
+  "rules_doc": "STRATEGY-DONCHIAN.md",
+  "open_positions": [],
+  "closed_trades": [],
+  "no_backfill": true,
+  "awaiting_daily_close": true,
+  "next_daily_close_hkt": "2026-10-05 00:00 HKT",
+  "next_signal_day": "2026-10-04",
+  "signals_log": [
+    {
+      "id": "sig-donchian-20261004-1834",
+      "type": "book_start",
+      "evaluated_at": "2026-10-04 18:34:22 HKT",
+      "evaluated_at_iso": "2026-10-04T18:34:22.139359+08:00",
+      "data_source": "https://data-api.binance.vision (Binance public market data)",
+      "strategy": "Donchian 20/10 (Long-only)",
+      "note": "Book opened flat. 2026-10-04 HKT daily candle was not closed (close is 00:00 HKT, i.e. 2026-10-05 00:00). No entry. No historical trades backfilled. Last completed HKT daily candle is 2026-10-03, used only to compute the 20-day high and ATR(20).",
+      "equity": 10000.0,
+      "open_positions_count": 0,
+      "actions": {
+        "entries": [],
+        "exits": []
+      },
+      "position_opened": false,
+      "book_state": "flat_waiting_for_daily_close",
+      "pairs": {
+        "BTC/USDT": {
+          "last_completed_day": "2026-10-03",
+          "last_completed_close_hkt": "2026-10-04 00:00 HKT",
+          "open": 85326.0,
+          "high": 85508.0,
+          "low": 83888.0,
+          "close": 84867.28,
+          "prior_20d_high": 87395.67,
+          "prior_20d_high_on": "2026-09-22",
+          "prior_20d_window": [
+            "2026-09-13",
+            "2026-10-02"
+          ],
+          "close_above_prior_20d_high": false,
+          "atr20_wilder_including_day": 2269.7474,
+          "pending_signal_day": "2026-10-04",
+          "pending_close_at": "2026-10-05 00:00 HKT",
+          "breakout_level_for_pending_close": 87395.67,
+          "breakout_level_on": "2026-09-22",
+          "breakout_window": [
+            "2026-09-14",
+            "2026-10-03"
+          ],
+          "entry_signal": false,
+          "entry_blocked_reason": "2026-10-04 HKT daily candle not closed yet"
+        },
+        "ETH/USDT": {
+          "last_completed_day": "2026-10-03",
+          "last_completed_close_hkt": "2026-10-04 00:00 HKT",
+          "open": 2697.36,
+          "high": 2704.07,
+          "low": 2650.88,
+          "close": 2681.69,
+          "prior_20d_high": 2807.34,
+          "prior_20d_high_on": "2026-09-22",
+          "prior_20d_window": [
+            "2026-09-13",
+            "2026-10-02"
+          ],
+          "close_above_prior_20d_high": false,
+          "atr20_wilder_including_day": 89.9674,
+          "pending_signal_day": "2026-10-04",
+          "pending_close_at": "2026-10-05 00:00 HKT",
+          "breakout_level_for_pending_close": 2807.34,
+          "breakout_level_on": "2026-09-22",
+          "breakout_window": [
+            "2026-09-14",
+            "2026-10-03"
+          ],
+          "entry_signal": false,
+          "entry_blocked_reason": "2026-10-04 HKT daily candle not closed yet"
+        }
+      }
+    }
+  ],
+  "last_updated": "2026-10-04 18:34:22 HKT",
+  "last_updated_iso": "2026-10-04T18:34:22.139359+08:00"
+}

@@ -1,7 +1,26 @@
-/* Kickstart paper-trading dashboard — reads ../journal.json via local HTTP */
+/* Paper-trading dashboard — one page, one book per strategy.
+   Local /dashboard/ reads journals from the project root.
+   GitHub Pages reads them beside index.html. */
 (() => {
-  const JOURNAL_URL = "./journal.json";
   const REFRESH_MS = 30000;
+  const BOOKS = {
+    "kickstart-v1.1": {
+      file: "journal.json",
+      buy: "買  收盤高過 EMA50，ADX ≥ 20 而且升緊，12 根穿越 EMA20 ≤ 3，回調後站上 0.15%。",
+      sell: "賣  止蝕（回調低點或 1.5×ATR，用較近）或者止賺 2R，邊個先到就賣。",
+    },
+    "donchian-20-10": {
+      file: "journal-donchian.json",
+      buy: "日線收盤突破過去 20 日最高就買。",
+      sell: "跌破過去 10 日最低，或者離入場價 2 倍平均波幅，邊個先到就賣。無止賺。",
+    },
+  };
+
+  function journalUrl(file) {
+    const path = location.pathname.replace(/\/index\.html$/i, "");
+    const inDashboard = /\/dashboard\/?$/.test(path);
+    return (inDashboard ? "../" : "./") + file;
+  }
 
   let equityChart, cumPnlChart, pnlBarChart;
   let autoTimer = null;
@@ -129,6 +148,8 @@
     if (chartRef) {
       chartRef.data.labels = labels;
       chartRef.data.datasets[0].data = data;
+      chartRef.data.datasets[0].borderColor = color;
+      chartRef.data.datasets[0].backgroundColor = color + "33";
       chartRef.update();
       return chartRef;
     }
@@ -299,12 +320,26 @@
     pnlBarChart = upsertBar(pnlBarChart, "pnlBarChart", barLabels, barData);
   }
 
+  let loadSeq = 0;
+
+  function applyStrategyCopy(book) {
+    const buy = document.getElementById("strategyBuy");
+    const sell = document.getElementById("strategySell");
+    if (buy) buy.textContent = book.buy;
+    if (sell) sell.textContent = book.sell;
+  }
+
   async function loadJournal() {
     showErr("");
+    const seq = ++loadSeq;
+    const selected = ($("strategySelect") && $("strategySelect").value) || "kickstart-v1.1";
+    const book = BOOKS[selected] || BOOKS["kickstart-v1.1"];
+    applyStrategyCopy(book);
     try {
-      const res = await fetch(`${JOURNAL_URL}?t=${Date.now()}`, { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status} loading journal.json`);
+      const res = await fetch(`${journalUrl(book.file)}?t=${Date.now()}`, { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status} loading ${book.file}`);
       const j = await res.json();
+      if (seq !== loadSeq) return;
       const closed = sortClosed(j.closed_trades || []);
       const open = j.open_positions || [];
 
@@ -319,7 +354,7 @@
     } catch (e) {
       console.error(e);
       showErr(
-        `無法載入 journal.json：${e.message}。請喺專案根目錄用 python3 -m http.server 8765 開啟本頁（唔好直接用 file://）。`
+        `無法載入 ${book.file}：${e.message}。請喺專案根目錄用 python3 -m http.server 8765 開啟本頁（唔好直接用 file://）。`
       );
     }
   }
@@ -338,6 +373,10 @@
     chartDefaults();
     $("btnRefresh").addEventListener("click", () => loadJournal());
     $("btnAuto").addEventListener("click", () => setAuto(!autoOn));
+    const sel = $("strategySelect");
+    if (sel) {
+      sel.addEventListener("change", () => loadJournal());
+    }
     loadJournal();
   });
 })();

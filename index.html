@@ -286,10 +286,11 @@
         <label class="sr-only" for="strategySelect">Strategy</label>
         <select id="strategySelect" class="strategy-select" aria-label="Strategy">
           <option value="kickstart-v1.1" selected>Trend + Pullback (Long-only)</option>
+          <option value="donchian-20-10">Donchian 20/10 (Long-only)</option>
         </select>
       </div>
-      <p>買  收盤高過 EMA50，ADX ≥ 20 而且升緊，12 根穿越 EMA20 ≤ 3，回調後站上 0.15%。</p>
-      <p>賣  止蝕（回調低點或 1.5×ATR，用較近）或者止賺 2R，邊個先到就賣。</p>
+      <p id="strategyBuy">買  收盤高過 EMA50，ADX ≥ 20 而且升緊，12 根穿越 EMA20 ≤ 3，回調後站上 0.15%。</p>
+      <p id="strategySell">賣  止蝕（回調低點或 1.5×ATR，用較近）或者止賺 2R，邊個先到就賣。</p>
     </section>
 
     <div class="err" id="errBox"></div>
@@ -368,7 +369,7 @@
   </main>
 
   <footer>
-    本地紙上交易視覺化 · 讀取 <code>journal.json</code> · 唔會同步 Google Drive · 唔會下真實單 ·
+    本地紙上交易視覺化 · 下拉選策略，各自讀取 <code>journal.json</code> 或 <code>journal-donchian.json</code> · 兩本帳簿唔混合 · 唔會下真實單 ·
     用 <code>./dashboard/serve.sh</code> 或喺專案根目錄跑 <code>python3 -m http.server 8765</code> 後開
     <code>http://127.0.0.1:8765/dashboard/</code>
   </footer>
