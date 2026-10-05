@@ -36,12 +36,12 @@
       "signal_candle": "2026-09-29 04:00",
       "signal_reason": "Bias bullish (4H close > EMA50); pullback touched EMA20 (low 2667.86 <= EMA20 2683.1096); close reclaimed above EMA20 (2688.71 > 2683.1096).",
       "fees_slippage_note": "0.1% round-trip applied at close",
-      "last_mark_price": 2712.18,
-      "last_mark_at": "2026-10-05 19:14:34 HKT",
-      "last_mark_at_iso": "2026-10-05T19:14:34.768278+08:00",
-      "unrealized_gross_usdt": 45.08,
+      "last_mark_price": 2716.67,
+      "last_mark_at": "2026-10-05 20:15:02 HKT",
+      "last_mark_at_iso": "2026-10-05T20:15:02.124933+08:00",
+      "unrealized_gross_usdt": 53.7042,
       "unrealized_fees_usdt": 5.1643,
-      "unrealized_net_usdt": 39.9157
+      "unrealized_net_usdt": 48.5398
     }
   ],
   "closed_trades": [
@@ -6144,10 +6144,139 @@
           "unrealized_pnl_usdt_rough": 79.0389
         }
       ]
+    },
+    {
+      "id": "sig-20261005-2008",
+      "type": "scheduled_watch",
+      "evaluated_at": "2026-10-05 20:08:55 HKT",
+      "evaluated_at_iso": "2026-10-05T20:08:55.003574+08:00",
+      "data_source": "https://data-api.binance.vision (Binance public market data)",
+      "strategy_version": "v1.1",
+      "note": "Crypto Kickstart sim watch — no new entry, open positions unchanged (no SL/TP hit).",
+      "equity": 9871.6614,
+      "open_positions_count": 1,
+      "actions": {
+        "entries": [],
+        "exits": []
+      },
+      "pairs": {
+        "BTC/USDT": {
+          "price": 86128.0,
+          "last_closed_4h": {
+            "open": 86252.76,
+            "high": 86498.5,
+            "low": 85776.58,
+            "close": 86216.0,
+            "time_hk": "2026-10-05 16:00 HKT"
+          },
+          "forming_4h": {
+            "open": 86216.01,
+            "high": 86216.01,
+            "low": 86119.34,
+            "close": 86128.0,
+            "time_hk": "2026-10-05 20:00 HKT"
+          },
+          "ema20": 85323.7208,
+          "ema50": 84641.5652,
+          "atr14": 717.5623,
+          "adx14": 29.0196,
+          "adx14_6bars_ago": 24.4689,
+          "ema20_crosses_last12": 0,
+          "bias_bullish": true,
+          "anti_chop_pass": true,
+          "reclaim": false,
+          "dist_ema20_pct": 1.0458,
+          "entry_signal": false,
+          "entry_blocked_reason": "reclaim FAIL: low 85776.58 > EMA20 85323.7208; close 86216.0 >= EMA20×1.0015=85451.7064",
+          "daily_closes_recent": [
+            [
+              "2026-09-30",
+              83623.6
+            ],
+            [
+              "2026-10-01",
+              84880.05
+            ],
+            [
+              "2026-10-02",
+              84518.01
+            ],
+            [
+              "2026-10-03",
+              84753.56
+            ],
+            [
+              "2026-10-04",
+              86530.0
+            ]
+          ]
+        },
+        "ETH/USDT": {
+          "price": 2717.34,
+          "last_closed_4h": {
+            "open": 2726.49,
+            "high": 2734.55,
+            "low": 2711.22,
+            "close": 2718.39,
+            "time_hk": "2026-10-05 16:00 HKT"
+          },
+          "forming_4h": {
+            "open": 2718.39,
+            "high": 2720.68,
+            "low": 2715.24,
+            "close": 2717.33,
+            "time_hk": "2026-10-05 20:00 HKT"
+          },
+          "ema20": 2703.2366,
+          "ema50": 2692.581,
+          "atr14": 24.9204,
+          "adx14": 20.6739,
+          "adx14_6bars_ago": 18.6095,
+          "ema20_crosses_last12": 1,
+          "bias_bullish": true,
+          "anti_chop_pass": true,
+          "reclaim": false,
+          "dist_ema20_pct": 0.5606,
+          "entry_signal": false,
+          "entry_blocked_reason": "已有倉；已有模擬多單 pos-eth-20260929-0809：SL 2638.29 / TP 2789.55；anti-chop PASS（但已有倉，唔開新倉）",
+          "daily_closes_recent": [
+            [
+              "2026-09-30",
+              2686.01
+            ],
+            [
+              "2026-10-01",
+              2706.42
+            ],
+            [
+              "2026-10-02",
+              2668.59
+            ],
+            [
+              "2026-10-03",
+              2687.23
+            ],
+            [
+              "2026-10-04",
+              2726.94
+            ]
+          ]
+        }
+      },
+      "open_positions_snapshot": [
+        {
+          "id": "pos-eth-20260929-0809",
+          "pair": "ETH/USDT",
+          "entry_price": 2688.71,
+          "stop_price": 2638.29,
+          "take_profit_price": 2789.55,
+          "unrealized_pnl_usdt_rough": 54.9911
+        }
+      ]
     }
   ],
-  "last_updated": "2026-10-05 19:14:34 HKT",
-  "last_updated_iso": "2026-10-05T19:14:34.768278+08:00",
+  "last_updated": "2026-10-05 20:15:02 HKT",
+  "last_updated_iso": "2026-10-05T20:15:02.124933+08:00",
   "strategy_revisions": [
     {
       "version": "v1.1",
@@ -6155,6 +6284,6 @@
       "note": "Anti-chop ADX rising + EMA20 cross filter; reclaim >=0.15%; second-pair risk 0.5%. Applies to new entries only; open positions keep existing SL/TP."
     }
   ],
-  "equity_current": 9911.5771,
-  "last_mark_at": "2026-10-05 19:14:34 HKT"
+  "equity_current": 9920.2012,
+  "last_mark_at": "2026-10-05 20:15:02 HKT"
 }
