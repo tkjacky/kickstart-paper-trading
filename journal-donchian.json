@@ -30,8 +30,8 @@
   "closed_trades": [],
   "no_backfill": true,
   "awaiting_daily_close": true,
-  "next_daily_close_hkt": "2026-10-05 00:00 HKT",
-  "next_signal_day": "2026-10-04",
+  "next_daily_close_hkt": "2026-10-06 00:00 HKT",
+  "next_signal_day": "2026-10-05",
   "signals_log": [
     {
       "id": "sig-donchian-20261004-1834",
@@ -103,8 +103,87 @@
           "entry_blocked_reason": "2026-10-04 HKT daily candle not closed yet"
         }
       }
+    },
+    {
+      "id": "sig-donchian-20261004-0010",
+      "type": "daily_close_eval",
+      "evaluated_at": "2026-10-05 00:15:16 HKT",
+      "evaluated_at_iso": "2026-10-05T00:15:16.239758+08:00",
+      "data_source": "https://data-api.binance.vision (Binance public market data)",
+      "strategy": "Donchian 20/10 (Long-only)",
+      "signal_day_hkt": "2026-10-04",
+      "daily_close_at": "2026-10-05 00:00 HKT",
+      "note": "Evaluated completed HKT daily candle 2026-10-04. Flat book; exits N/A. Entry: close must exceed prior 20 completed daily highs. No backfill.",
+      "equity": 10000.0,
+      "open_positions_count": 0,
+      "actions": {
+        "entries": [],
+        "exits": []
+      },
+      "position_opened": false,
+      "position_closed": false,
+      "book_state": "flat",
+      "pairs": {
+        "BTC/USDT": {
+          "completed_day": "2026-10-04",
+          "completed_close_hkt": "2026-10-05 00:00 HKT",
+          "open": 84867.27,
+          "high": 85470.0,
+          "low": 84558.0,
+          "close": 85256.01,
+          "prior_20d_high": 87395.67,
+          "prior_20d_high_on": "2026-09-22",
+          "prior_20d_window": [
+            "2026-09-14",
+            "2026-10-03"
+          ],
+          "close_above_prior_20d_high": false,
+          "atr20_wilder_including_day": 2291.5363,
+          "prior_10d_low": 82563.0,
+          "prior_10d_low_on": "2026-09-28",
+          "entry_signal": false,
+          "entry_blocked_reason": "close not above prior 20-day high",
+          "pending_signal_day": "2026-10-05",
+          "pending_close_at": "2026-10-06 00:00 HKT",
+          "breakout_level_for_pending_close": 87395.67,
+          "breakout_level_on": "2026-09-22",
+          "breakout_window": [
+            "2026-09-15",
+            "2026-10-04"
+          ]
+        },
+        "ETH/USDT": {
+          "completed_day": "2026-10-04",
+          "completed_close_hkt": "2026-10-05 00:00 HKT",
+          "open": 2681.69,
+          "high": 2707.99,
+          "low": 2678.79,
+          "close": 2698.99,
+          "prior_20d_high": 2807.34,
+          "prior_20d_high_on": "2026-09-22",
+          "prior_20d_window": [
+            "2026-09-14",
+            "2026-10-03"
+          ],
+          "close_above_prior_20d_high": false,
+          "atr20_wilder_including_day": 90.2886,
+          "prior_10d_low": 2600.15,
+          "prior_10d_low_on": "2026-09-24",
+          "entry_signal": false,
+          "entry_blocked_reason": "close not above prior 20-day high",
+          "pending_signal_day": "2026-10-05",
+          "pending_close_at": "2026-10-06 00:00 HKT",
+          "breakout_level_for_pending_close": 2807.34,
+          "breakout_level_on": "2026-09-22",
+          "breakout_window": [
+            "2026-09-15",
+            "2026-10-04"
+          ]
+        }
+      }
     }
   ],
-  "last_updated": "2026-10-04 18:34:22 HKT",
-  "last_updated_iso": "2026-10-04T18:34:22.139359+08:00"
+  "last_updated": "2026-10-05 00:15:16 HKT",
+  "last_updated_iso": "2026-10-05T00:15:16.239758+08:00",
+  "last_evaluated_signal_day": "2026-10-04"
 }
