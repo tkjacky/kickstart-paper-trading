@@ -72,7 +72,11 @@
     return "";
   }
 
-  function sizeOf(pos) {
+  function fmtTime(ts) {
+    return String(ts ?? "").replace(/\s+(?:HKT|UTC|GMT)$/, "");
+  }
+
+    function sizeOf(pos) {
     if (pos.quantity != null) return `${fmtNum(pos.quantity, 0)} 股`;
     if (pos.size_btc != null) return `${fmtNum(pos.size_btc, 8)} BTC`;
     if (pos.size_eth != null) return `${fmtNum(pos.size_eth, 8)} ETH`;
@@ -269,7 +273,7 @@
       tr.innerHTML = `
         <td>${esc(p.pair)}</td>
         <td>${esc(p.side)}</td>
-        <td>${esc(p.opened_at || p.opened_at_iso)}</td>
+        <td>${esc(fmtTime(p.opened_at || p.opened_at_iso))}</td>
         <td>${fmtPrice(p.entry_price)}</td>
         <td>${fmtPrice(p.stop_price)}</td>
         <td>${fmtPrice(p.take_profit_price)}</td>
@@ -296,10 +300,12 @@
       const net = val(t, "net_pnl");
       tr.innerHTML = `
         <td>${esc(t.pair)}</td>
-        <td>${esc(t.opened_at || "")}</td>
-        <td>${esc(t.closed_at || "")}</td>
+        <td>${esc(fmtTime(t.opened_at || ""))}</td>
+        <td>${esc(fmtTime(t.closed_at || ""))}</td>
         <td>${fmtPrice(t.entry_price)}</td>
         <td>${fmtPrice(t.exit_price)}</td>
+        <td>${sizeOf(t)}</td>
+        <td>${fmtNum(t.risk_amount ?? t.risk_usdt)}</td>
         <td>${esc(t.exit_reason || "")}</td>
         <td class="${pnlClass(val(t, "gross_pnl"))}">${fmtNum(val(t, "gross_pnl"))}</td>
         <td>${fmtNum(val(t, "fees"))}</td>
@@ -356,6 +362,8 @@
     document.querySelectorAll(".thPair").forEach((th) => (th.textContent = book.stock ? "Ticker" : "Pair"));
     $("thTp").textContent = book.stock ? "TP" : "TP (2R)";
     $("thRisk").textContent = `Risk ${unit}`;
+    const thr = $("thClosedRisk");
+    if (thr) thr.textContent = `Risk ${unit}`;
     $("cumPnlUnit").textContent = `淨利 ${unit}`;
     $("barUnit").textContent = book.stock ? "bar = net_pnl" : "bar = net_pnl_usdt";
   }
@@ -378,7 +386,7 @@
 
       $("statusBadge").textContent = "Simulation";
       const updated = String(j.last_updated || "—").replace(/\s+(?:HKT|UTC|GMT)$/, "");
-      $("metaLine").textContent = `更新 ${updated} HKT`;
+      $("metaLine").textContent = `更新 ${updated} · Asia/Hong_Kong`;
 
       renderKpis(j, closed);
       renderOpen(open);
