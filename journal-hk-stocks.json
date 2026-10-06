@@ -3,27 +3,39 @@
   "book_id": "hk-stocks-trend-20-50",
   "owner": "股神",
   "status": "simulation",
-  "note": "Starting empty book. 股神 will backfill trades and marks. Paper trading only. No real account, broker, bank or identity data.",
+  "note": "Paper trading only. No real account, broker, bank or identity data. Flat: watchlist has not passed trend filter.",
   "market": "HK",
   "asset_class": "stock",
   "currency": "HKD",
   "timezone": "Asia/Hong_Kong",
-  "market_hours_hkt": "09:30-12:00, 13:00-16:00",
+  "market_hours_hkt": "09:30-12:00 and 13:00-16:00",
   "updates_only_in_market_hours": true,
-  "created_at": "2026-10-06 17:20:00 HKT",
-  "created_at_iso": "2026-10-06T17:20:00+08:00",
+  "created_at": "2026-09-30 15:07:00 HKT",
+  "created_at_iso": "2026-09-30T15:07:00+08:00",
   "starting_equity": 10000.0,
   "equity": 10000.0,
+  "equity_current": 10000.0,
   "fees_slippage_round_trip_pct": 0.0,
   "risk_per_trade_pct": 1.5,
   "max_open_positions": 2,
   "whole_shares_only": true,
-  "lot_size_note": "HK trades in board lots; quantity must be a multiple of the stock's lot size.",
   "direction": "long-only",
-  "universe": [],
+  "universe": [
+    "2800.HK",
+    "0700.HK",
+    "9988.HK",
+    "0005.HK"
+  ],
   "open_positions": [],
   "closed_trades": [],
-  "signals_log": [],
-  "last_updated": "2026-10-06 17:20:00 HKT",
-  "last_updated_iso": "2026-10-06T17:20:00+08:00"
+  "signals_log": [
+    {
+      "id": "backfill-20261006",
+      "type": "backfill",
+      "evaluated_at": "2026-10-06 17:23:25 HKT",
+      "note": "No fills yet; 2800/0700/9988/0005 fail close>20DMA and 20>50DMA."
+    }
+  ],
+  "last_updated": "2026-10-06 17:23:25 HKT",
+  "last_updated_iso": "2026-10-06T17:23:25+08:00"
 }
