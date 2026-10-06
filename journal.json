@@ -36,12 +36,12 @@
       "signal_candle": "2026-09-29 04:00",
       "signal_reason": "Bias bullish (4H close > EMA50); pullback touched EMA20 (low 2667.86 <= EMA20 2683.1096); close reclaimed above EMA20 (2688.71 > 2683.1096).",
       "fees_slippage_note": "0.1% round-trip applied at close",
-      "last_mark_price": 2703.44,
-      "last_mark_at": "2026-10-06 12:13:43 HKT",
-      "last_mark_at_iso": "2026-10-06T12:13:43.003869+08:00",
-      "unrealized_gross_usdt": 28.2926,
+      "last_mark_price": 2705.78,
+      "last_mark_at": "2026-10-06 13:11:59 HKT",
+      "last_mark_at_iso": "2026-10-06T13:11:59.563537+08:00",
+      "unrealized_gross_usdt": 32.7872,
       "unrealized_fees_usdt": 5.1643,
-      "unrealized_net_usdt": 23.1283
+      "unrealized_net_usdt": 27.6229
     },
     {
       "id": "pos-btc-20261006-0803",
@@ -66,12 +66,12 @@
       "fees_slippage_note": "0.1% round-trip applied at close",
       "strategy_version": "v1.1",
       "risk_pct_used": 0.5,
-      "last_mark_price": 85628.01,
-      "last_mark_at": "2026-10-06 12:13:43 HKT",
-      "last_mark_at_iso": "2026-10-06T12:13:43.003869+08:00",
-      "unrealized_gross_usdt": -13.0443,
+      "last_mark_price": 85722.01,
+      "last_mark_at": "2026-10-06 13:11:59 HKT",
+      "last_mark_at_iso": "2026-10-06T13:11:59.563537+08:00",
+      "unrealized_gross_usdt": -7.8487,
       "unrealized_fees_usdt": 4.7459,
-      "unrealized_net_usdt": -17.7902
+      "unrealized_net_usdt": -12.5946
     }
   ],
   "closed_trades": [
@@ -6589,8 +6589,8 @@
       ]
     }
   ],
-  "last_updated": "2026-10-06 12:13:43 HKT",
-  "last_updated_iso": "2026-10-06T12:13:43.003869+08:00",
+  "last_updated": "2026-10-06 13:11:59 HKT",
+  "last_updated_iso": "2026-10-06T13:11:59.563537+08:00",
   "strategy_revisions": [
     {
       "version": "v1.1",
@@ -6598,6 +6598,6 @@
       "note": "Anti-chop ADX rising + EMA20 cross filter; reclaim >=0.15%; second-pair risk 0.5%. Applies to new entries only; open positions keep existing SL/TP."
     }
   ],
-  "equity_current": 9876.9995,
-  "last_mark_at": "2026-10-06 12:13:43 HKT"
+  "equity_current": 9886.6897,
+  "last_mark_at": "2026-10-06 13:11:59 HKT"
 }
