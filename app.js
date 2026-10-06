@@ -407,6 +407,19 @@
     $("btnRefresh").addEventListener("click", () => loadJournal());
     $("btnAuto").addEventListener("click", () => setAuto(!autoOn));
     const sel = $("strategySelect");
+    const mkt = $("marketSelect");
+    const allOpts = sel ? Array.from(sel.options).map((o) => o.cloneNode(true)) : [];
+    function filterStrategies() {
+      if (!sel || !mkt) return;
+      const m = mkt.value;
+      sel.innerHTML = "";
+      allOpts.filter((o) => o.dataset.market === m).forEach((o) => sel.appendChild(o.cloneNode(true)));
+      sel.selectedIndex = 0;
+    }
+    if (mkt) {
+      mkt.addEventListener("change", () => { filterStrategies(); loadJournal(); });
+      filterStrategies();
+    }
     if (sel) {
       sel.addEventListener("change", () => loadJournal());
     }

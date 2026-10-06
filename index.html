@@ -283,12 +283,17 @@
     <section class="strategy-panel" aria-labelledby="strategyPanelTitle">
       <div class="strategy-heading">
         <h2 id="strategyPanelTitle">策略</h2>
+        <label class="sr-only" for="marketSelect">Market</label>
+        <select id="marketSelect" class="strategy-select" aria-label="Market">
+          <option value="crypto" selected>Crypto</option>
+          <option value="stock">Stock</option>
+        </select>
         <label class="sr-only" for="strategySelect">Strategy</label>
         <select id="strategySelect" class="strategy-select" aria-label="Strategy">
-          <option value="kickstart-v1.1" selected>Trend + Pullback (Long-only)</option>
-          <option value="donchian-20-10">Donchian 20/10 (Long-only)</option>
-          <option value="us-stocks-trend-20-50">US Stocks: Trend 20/50 (Long-only)</option>
-          <option value="hk-stocks-trend-20-50">HK Stocks: Trend 20/50 (Long-only)</option>
+          <option value="kickstart-v1.1" data-market="crypto" selected>Trend + Pullback (Long-only)</option>
+          <option value="donchian-20-10" data-market="crypto">Donchian 20/10 (Long-only)</option>
+          <option value="us-stocks-trend-20-50" data-market="stock">US Stocks: Trend 20/50 (Long-only)</option>
+          <option value="hk-stocks-trend-20-50" data-market="stock">HK Stocks: Trend 20/50 (Long-only)</option>
         </select>
       </div>
       <p id="strategyBuy">買  收盤高過 EMA50，ADX ≥ 20 而且升緊，12 根穿越 EMA20 ≤ 3，回調後站上 0.15%。</p>
