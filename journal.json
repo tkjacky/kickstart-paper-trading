@@ -36,12 +36,12 @@
       "signal_candle": "2026-09-29 04:00",
       "signal_reason": "Bias bullish (4H close > EMA50); pullback touched EMA20 (low 2667.86 <= EMA20 2683.1096); close reclaimed above EMA20 (2688.71 > 2683.1096).",
       "fees_slippage_note": "0.1% round-trip applied at close",
-      "last_mark_price": 2713.31,
-      "last_mark_at": "2026-10-06 08:07:48 HKT",
-      "last_mark_at_iso": "2026-10-06T08:07:48.355550+08:00",
-      "unrealized_gross_usdt": 47.2504,
+      "last_mark_price": 2720.11,
+      "last_mark_at": "2026-10-06 09:05:59 HKT",
+      "last_mark_at_iso": "2026-10-06T09:05:59.667361+08:00",
+      "unrealized_gross_usdt": 60.3115,
       "unrealized_fees_usdt": 5.1643,
-      "unrealized_net_usdt": 42.0861
+      "unrealized_net_usdt": 55.1472
     },
     {
       "id": "pos-btc-20261006-0803",
@@ -66,12 +66,12 @@
       "fees_slippage_note": "0.1% round-trip applied at close",
       "strategy_version": "v1.1",
       "risk_pct_used": 0.5,
-      "last_mark_price": 85811.19,
-      "last_mark_at": "2026-10-06 08:07:48 HKT",
-      "last_mark_at_iso": "2026-10-06T08:07:48.355550+08:00",
-      "unrealized_gross_usdt": -2.9195,
+      "last_mark_price": 86112.0,
+      "last_mark_at": "2026-10-06 09:05:59 HKT",
+      "last_mark_at_iso": "2026-10-06T09:05:59.667361+08:00",
+      "unrealized_gross_usdt": 13.707,
       "unrealized_fees_usdt": 4.7459,
-      "unrealized_net_usdt": -7.6654
+      "unrealized_net_usdt": 8.9611
     }
   ],
   "closed_trades": [
@@ -6452,8 +6452,8 @@
       ]
     }
   ],
-  "last_updated": "2026-10-06 08:07:48 HKT",
-  "last_updated_iso": "2026-10-06T08:07:48.355550+08:00",
+  "last_updated": "2026-10-06 09:05:59 HKT",
+  "last_updated_iso": "2026-10-06T09:05:59.667361+08:00",
   "strategy_revisions": [
     {
       "version": "v1.1",
@@ -6461,6 +6461,6 @@
       "note": "Anti-chop ADX rising + EMA20 cross filter; reclaim >=0.15%; second-pair risk 0.5%. Applies to new entries only; open positions keep existing SL/TP."
     }
   ],
-  "equity_current": 9906.0821,
-  "last_mark_at": "2026-10-06 08:07:48 HKT"
+  "equity_current": 9935.7697,
+  "last_mark_at": "2026-10-06 09:05:59 HKT"
 }
