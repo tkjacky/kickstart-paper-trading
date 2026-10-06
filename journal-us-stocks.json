@@ -14,7 +14,7 @@
   "created_at_iso": "2026-09-30T15:07:00+08:00",
   "starting_equity": 10000.0,
   "equity": 9970.88,
-  "equity_current": 9956.11,
+  "equity_current": 9985.07,
   "fees_slippage_round_trip_pct": 0.0,
   "risk_per_trade_pct": 1.5,
   "max_open_positions": 2,
@@ -49,9 +49,9 @@
       "risk_amount": 141.78,
       "risk_distance": 8.34,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 332.89,
-      "last_mark_at": "2026-10-06 04:00:00 HKT",
-      "unrealized_net": -21.42
+      "last_mark_price": 333.74,
+      "last_mark_at": "2026-10-06 22:21:34 HKT",
+      "unrealized_net": -6.97
     },
     {
       "id": "pos-spy-20261005-2225",
@@ -74,9 +74,9 @@
       "risk_amount": 42.35,
       "risk_distance": 14.12,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 774.83,
-      "last_mark_at": "2026-10-06 04:00:00 HKT",
-      "unrealized_net": 6.65
+      "last_mark_price": 779.67,
+      "last_mark_at": "2026-10-06 22:21:34 HKT",
+      "unrealized_net": 21.16
     }
   ],
   "closed_trades": [
@@ -122,8 +122,14 @@
       "type": "backfill",
       "evaluated_at": "2026-10-06 17:23:25 HKT",
       "note": "Backfilled closed SPY and open AAPL/SPY from paper ledger."
+    },
+    {
+      "id": "scan-20261006-2221",
+      "type": "scan",
+      "evaluated_at": "2026-10-06 22:21:34 HKT",
+      "note": "US open scan: AAPL 333.74 (low 330.62 > stop 325.81), SPY 779.67 (low 777.96 > stop 758.5); Oct 5 closes above 20DMA so no exit armed; no scale (+5%) reached; at max 2 positions, no new entries."
     }
   ],
-  "last_updated": "2026-10-06 17:23:25 HKT",
-  "last_updated_iso": "2026-10-06T17:23:25+08:00"
+  "last_updated": "2026-10-06 22:21:34 HKT",
+  "last_updated_iso": "2026-10-06T22:21:34+08:00"
 }
