@@ -37,7 +37,7 @@
       z-index: 10;
     }
     .header-inner {
-      max-width: 1280px;
+      max-width: none; width: 100%;
       margin: 0 auto;
     }
     header h1 {
@@ -142,7 +142,7 @@
     .badge.sim .dot { background: var(--amber); }
     main {
       padding: 20px 24px 40px;
-      max-width: 1280px;
+      max-width: none; width: 100%;
       margin: 0 auto;
     }
     .kpis {
@@ -234,6 +234,23 @@
     th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: none; }
     tr:hover td { background: rgba(91, 140, 255, 0.06); }
     .table-scroll { overflow-x: auto; }
+    th.th-end, td.td-end {
+      min-width: 7.5rem;
+      position: sticky;
+      right: 0;
+      background: var(--panel);
+      box-shadow: -6px 0 8px -6px rgba(0,0,0,.45);
+      z-index: 1;
+    }
+    th.th-end-2, td.td-end-2 {
+      min-width: 5.5rem;
+      position: sticky;
+      right: 7.5rem;
+      background: var(--panel);
+      box-shadow: -6px 0 8px -6px rgba(0,0,0,.35);
+      z-index: 1;
+    }
+    thead th.th-end, thead th.th-end-2 { z-index: 2; }
     .empty {
       color: var(--muted);
       padding: 24px;
@@ -253,7 +270,7 @@
       color: var(--muted);
       font-size: 0.75rem;
       padding: 0 24px 24px;
-      max-width: 1280px;
+      max-width: none; width: 100%;
       margin: 0 auto;
     }
     code {
@@ -328,6 +345,7 @@
 
     <section class="card" style="margin-bottom:18px">
       <h2>開倉持倉 Open Positions <span id="openCount"></span></h2>
+      <p class="hint" id="openMarkHint" style="margin:-6px 0 10px;color:var(--muted);font-size:0.85rem">Mark／未實現 = 上次掃描標記價，唔係即時報價</p>
       <div class="table-scroll">
         <table>
           <thead>
@@ -338,6 +356,8 @@
               <th>Entry</th>
               <th>Stop</th>
               <th id="thTp">TP (2R)</th>
+              <th>Mark</th>
+              <th id="thUnreal">未實現</th>
               <th>Size</th>
               <th>Notional</th>
               <th id="thRisk">Risk USDT</th>
@@ -366,8 +386,8 @@
               <th>Gross PnL</th>
               <th>Fees</th>
               <th>Net PnL</th>
-              <th>R</th>
-              <th>Equity After</th>
+              <th class="th-end-2">R</th>
+              <th class="th-end">Equity After</th>
             </tr>
           </thead>
           <tbody id="closedBody"></tbody>

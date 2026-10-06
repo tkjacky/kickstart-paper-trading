@@ -277,6 +277,8 @@
         <td>${fmtPrice(p.entry_price)}</td>
         <td>${fmtPrice(p.stop_price)}</td>
         <td>${fmtPrice(p.take_profit_price)}</td>
+        <td>${fmtPrice(p.last_mark_price)}</td>
+        <td class="${pnlClass(val(p, "unrealized_net"))}">${fmtNum(val(p, "unrealized_net"))}</td>
         <td>${sizeOf(p)}</td>
         <td>${fmtNum(val(p, "notional"))}</td>
         <td>${fmtNum(p.risk_amount ?? p.risk_usdt)}</td>`;
@@ -310,8 +312,8 @@
         <td class="${pnlClass(val(t, "gross_pnl"))}">${fmtNum(val(t, "gross_pnl"))}</td>
         <td>${fmtNum(val(t, "fees"))}</td>
         <td class="${pnlClass(net)}">${fmtNum(net)}</td>
-        <td class="${pnlClass(t.r_multiple)}">${fmtNum(t.r_multiple, 2)}R</td>
-        <td>${fmtNum(t.equity_after)}</td>`;
+        <td class="td-end-2 ${pnlClass(t.r_multiple)}">${fmtNum(t.r_multiple, 2)}R</td>
+        <td class="td-end">${fmtNum(t.equity_after)}</td>`;
       body.appendChild(tr);
     }
   }
@@ -362,20 +364,34 @@
     document.querySelectorAll(".thPair").forEach((th) => (th.textContent = book.stock ? "Ticker" : "Pair"));
     $("thTp").textContent = book.stock ? "TP" : "TP (2R)";
     $("thRisk").textContent = `Risk ${unit}`;
+    const thu = $("thUnreal");
+    if (thu) thu.textContent = `未實現 ${unit}`;
     const thr = $("thClosedRisk");
     if (thr) thr.textContent = `Risk ${unit}`;
     $("cumPnlUnit").textContent = `淨利 ${unit}`;
     $("barUnit").textContent = book.stock ? "bar = net_pnl" : "bar = net_pnl_usdt";
   }
 
+  let fetchAbort = null;
   async function loadJournal() {
     showErr("");
     const seq = ++loadSeq;
+    if (fetchAbort) fetchAbort.abort();
+    fetchAbort = typeof AbortController !== "undefined" ? new AbortController() : null;
     const selected = ($("strategySelect") && $("strategySelect").value) || "kickstart-v1.1";
     const book = BOOKS[selected] || BOOKS["kickstart-v1.1"];
     applyStrategyCopy(book);
+    $("metaLine").textContent = `載入中… · Asia/Hong_Kong`;
+    $("kpiEquity").textContent = "—";
+    $("kpiPnl").textContent = "—";
+    $("kpiOpen").textContent = "—";
+    $("kpiClosed").textContent = "—";
+    $("kpiRet").textContent = "—";
     try {
-      const res = await fetch(`${journalUrl(book.file)}?t=${Date.now()}`, { cache: "no-store" });
+      const res = await fetch(`${journalUrl(book.file)}?t=${Date.now()}`, {
+        cache: "no-store",
+        signal: fetchAbort ? fetchAbort.signal : undefined,
+      });
       if (!res.ok) throw new Error(`HTTP ${res.status} loading ${book.file}`);
       const j = await res.json();
       if (seq !== loadSeq) return;
@@ -393,6 +409,7 @@
       renderClosed(closed);
       renderCharts(j, closed);
     } catch (e) {
+      if (e && (e.name === "AbortError" || seq !== loadSeq)) return;
       console.error(e);
       showErr(
         `無法載入 ${book.file}：${e.message}。請喺專案根目錄用 python3 -m http.server 8765 開啟本頁（唔好直接用 file://）。`
