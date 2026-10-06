@@ -287,6 +287,8 @@
         <select id="strategySelect" class="strategy-select" aria-label="Strategy">
           <option value="kickstart-v1.1" selected>Trend + Pullback (Long-only)</option>
           <option value="donchian-20-10">Donchian 20/10 (Long-only)</option>
+          <option value="us-stocks-trend-20-50">US Stocks: Trend 20/50 (Long-only)</option>
+          <option value="hk-stocks-trend-20-50">HK Stocks: Trend 20/50 (Long-only)</option>
         </select>
       </div>
       <p id="strategyBuy">買  收盤高過 EMA50，ADX ≥ 20 而且升緊，12 根穿越 EMA20 ≤ 3，回調後站上 0.15%。</p>
@@ -309,13 +311,13 @@
         <div class="chart-wrap"><canvas id="equityChart"></canvas></div>
       </div>
       <div class="card">
-        <h2>累計損益 Cumulative PnL <span>淨利 USDT</span></h2>
+        <h2>累計損益 Cumulative PnL <span id="cumPnlUnit">淨利 USDT</span></h2>
         <div class="chart-wrap"><canvas id="cumPnlChart"></canvas></div>
       </div>
     </section>
 
     <section class="card" style="margin-bottom:18px">
-      <h2>每筆已實現損益 Trade PnL <span>bar = net_pnl_usdt</span></h2>
+      <h2>每筆已實現損益 Trade PnL <span id="barUnit">bar = net_pnl_usdt</span></h2>
       <div class="chart-wrap short"><canvas id="pnlBarChart"></canvas></div>
     </section>
 
@@ -325,15 +327,15 @@
         <table>
           <thead>
             <tr>
-              <th>Pair</th>
+              <th class="thPair">Pair</th>
               <th>Side</th>
               <th>Opened (HKT)</th>
               <th>Entry</th>
               <th>Stop</th>
-              <th>TP (2R)</th>
+              <th id="thTp">TP (2R)</th>
               <th>Size</th>
               <th>Notional</th>
-              <th>Risk USDT</th>
+              <th id="thRisk">Risk USDT</th>
             </tr>
           </thead>
           <tbody id="openBody"></tbody>
@@ -348,7 +350,7 @@
         <table>
           <thead>
             <tr>
-              <th>Pair</th>
+              <th class="thPair">Pair</th>
               <th>Opened</th>
               <th>Closed</th>
               <th>Entry</th>
@@ -369,7 +371,7 @@
   </main>
 
   <footer>
-    本地紙上交易視覺化 · 下拉選策略，各自讀取 <code>journal.json</code> 或 <code>journal-donchian.json</code> · 兩本帳簿唔混合 · 唔會下真實單 ·
+    本地紙上交易視覺化 · 下拉選策略，各自讀取 <code>journal.json</code>、<code>journal-donchian.json</code>、<code>journal-us-stocks.json</code> 或 <code>journal-hk-stocks.json</code> · 各本帳簿唔混合 · 唔會下真實單 ·
     用 <code>./dashboard/serve.sh</code> 或喺專案根目錄跑 <code>python3 -m http.server 8765</code> 後開
     <code>http://127.0.0.1:8765/dashboard/</code>
   </footer>

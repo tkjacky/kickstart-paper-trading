@@ -14,7 +14,29 @@
       buy: "日線收盤突破過去 20 日最高就買。",
       sell: "跌破過去 10 日最低，或者離入場價 2 倍平均波幅，邊個先到就賣。無止賺。",
     },
+    "us-stocks-trend-20-50": {
+      file: "journal-us-stocks.json",
+      stock: true,
+      currency: "USD",
+      buy: "買  收盤高過 20 日線，20 日線高過 50 日線；回調到 20 日線 1.5% 內或者突破 20 日高就買。離線超過 3% 或大升日唔追。",
+      sell: "賣  硬止蝕；收市跌穿 20 日線翌日開市平；賺 5% 平一半；賺 8% 止蝕移到成本；其餘跟 10 日線。紙上手續費計 0。",
+    },
+    "hk-stocks-trend-20-50": {
+      file: "journal-hk-stocks.json",
+      stock: true,
+      currency: "HKD",
+      buy: "買  收盤高過 20 日線，20 日線高過 50 日線；回調到 20 日線 1.5% 內或者突破 20 日高就買。離線超過 3% 或大升日唔追。",
+      sell: "賣  硬止蝕；收市跌穿 20 日線翌日開市平；賺 5% 平一半；賺 8% 止蝕移到成本；其餘跟 10 日線。紙上手續費計 0。",
+    },
   };
+
+  // Money fields: stock books use neutral names (net_pnl, notional, ...);
+  // crypto books keep the legacy *_usdt names. Read either.
+  function val(o, base) {
+    if (!o) return null;
+    return o[base] ?? o[base + "_usdt"] ?? null;
+  }
+  let unit = "USDT";
 
   function journalUrl(file) {
     const path = location.pathname.replace(/\/index\.html$/i, "");
@@ -51,6 +73,7 @@
   }
 
   function sizeOf(pos) {
+    if (pos.quantity != null) return `${fmtNum(pos.quantity, 0)} 股`;
     if (pos.size_btc != null) return `${fmtNum(pos.size_btc, 8)} BTC`;
     if (pos.size_eth != null) return `${fmtNum(pos.size_eth, 8)} ETH`;
     return "—";
@@ -130,7 +153,7 @@
           legend: { display: false },
           tooltip: {
             callbacks: {
-              label: (c) => `${opts.label}: ${fmtNum(c.parsed.y)} USDT`,
+              label: (c) => `${opts.label}: ${fmtNum(c.parsed.y)} ${unit}`,
             },
           },
         },
@@ -180,7 +203,7 @@
           legend: { display: false },
           tooltip: {
             callbacks: {
-              label: (c) => `Net PnL: ${fmtNum(c.parsed.y)} USDT`,
+              label: (c) => `Net PnL: ${fmtNum(c.parsed.y)} ${unit}`,
             },
           },
         },
@@ -206,16 +229,16 @@
   function renderKpis(j, closed) {
     const start = j.starting_equity;
     const eq = j.equity_current ?? j.equity;
-    const realized = closed.reduce((s, t) => s + (t.net_pnl_usdt || 0), 0);
+    const realized = closed.reduce((s, t) => s + (val(t, "net_pnl") || 0), 0);
     const ret = start ? ((eq - start) / start) * 100 : 0;
-    const wins = closed.filter((t) => (t.net_pnl_usdt || 0) > 0).length;
+    const wins = closed.filter((t) => (val(t, "net_pnl") || 0) > 0).length;
     const wr = closed.length ? (wins / closed.length) * 100 : null;
 
-    $("kpiEquity").textContent = `${fmtNum(eq)} ${j.currency || "USDT"}`;
+    $("kpiEquity").textContent = `${fmtNum(eq)} ${unit}`;
     if (j.equity_current != null) {
-      $("kpiEquityHint").textContent = `起始 ${fmtNum(start)}｜含未實現 marked-to-market（會計 ${fmtNum(j.equity)}）`;
+      $("kpiEquityHint").textContent = `起始 ${fmtNum(start)} ${unit}｜含未實現 marked-to-market（會計 ${fmtNum(j.equity)}）`;
     } else {
-      $("kpiEquityHint").textContent = `起始 ${fmtNum(start)} ${j.currency || "USDT"}`;
+      $("kpiEquityHint").textContent = `起始 ${fmtNum(start)} ${unit}`;
     }
 
     const pnlEl = $("kpiPnl");
@@ -251,8 +274,8 @@
         <td>${fmtPrice(p.stop_price)}</td>
         <td>${fmtPrice(p.take_profit_price)}</td>
         <td>${sizeOf(p)}</td>
-        <td>${fmtNum(p.notional_usdt)}</td>
-        <td>${fmtNum(p.risk_usdt)}</td>`;
+        <td>${fmtNum(val(p, "notional"))}</td>
+        <td>${fmtNum(p.risk_amount ?? p.risk_usdt)}</td>`;
       body.appendChild(tr);
     }
   }
@@ -270,7 +293,7 @@
     $("closedEmpty").style.display = "none";
     for (const t of rows) {
       const tr = document.createElement("tr");
-      const net = t.net_pnl_usdt;
+      const net = val(t, "net_pnl");
       tr.innerHTML = `
         <td>${esc(t.pair)}</td>
         <td>${esc(t.opened_at || "")}</td>
@@ -278,8 +301,8 @@
         <td>${fmtPrice(t.entry_price)}</td>
         <td>${fmtPrice(t.exit_price)}</td>
         <td>${esc(t.exit_reason || "")}</td>
-        <td class="${pnlClass(t.gross_pnl_usdt)}">${fmtNum(t.gross_pnl_usdt)}</td>
-        <td>${fmtNum(t.fees_usdt)}</td>
+        <td class="${pnlClass(val(t, "gross_pnl"))}">${fmtNum(val(t, "gross_pnl"))}</td>
+        <td>${fmtNum(val(t, "fees"))}</td>
         <td class="${pnlClass(net)}">${fmtNum(net)}</td>
         <td class="${pnlClass(t.r_multiple)}">${fmtNum(t.r_multiple, 2)}R</td>
         <td>${fmtNum(t.equity_after)}</td>`;
@@ -306,7 +329,7 @@
     const cumData = [0];
     let run = 0;
     for (const t of closed) {
-      run += t.net_pnl_usdt || 0;
+      run += val(t, "net_pnl") || 0;
       cumLabels.push(shortLabel(t.closed_at || t.closed_at_iso, t.pair));
       cumData.push(run);
     }
@@ -316,7 +339,7 @@
     });
 
     const barLabels = closed.map((t) => shortLabel(t.closed_at || t.closed_at_iso, t.pair));
-    const barData = closed.map((t) => t.net_pnl_usdt || 0);
+    const barData = closed.map((t) => val(t, "net_pnl") || 0);
     pnlBarChart = upsertBar(pnlBarChart, "pnlBarChart", barLabels, barData);
   }
 
@@ -327,6 +350,14 @@
     const sell = document.getElementById("strategySell");
     if (buy) buy.textContent = book.buy;
     if (sell) sell.textContent = book.sell;
+  }
+
+  function applyBookLabels(book) {
+    document.querySelectorAll(".thPair").forEach((th) => (th.textContent = book.stock ? "Ticker" : "Pair"));
+    $("thTp").textContent = book.stock ? "TP" : "TP (2R)";
+    $("thRisk").textContent = `Risk ${unit}`;
+    $("cumPnlUnit").textContent = `淨利 ${unit}`;
+    $("barUnit").textContent = book.stock ? "bar = net_pnl" : "bar = net_pnl_usdt";
   }
 
   async function loadJournal() {
@@ -340,6 +371,8 @@
       if (!res.ok) throw new Error(`HTTP ${res.status} loading ${book.file}`);
       const j = await res.json();
       if (seq !== loadSeq) return;
+      unit = j.currency || book.currency || "USDT";
+      applyBookLabels(book);
       const closed = sortClosed(j.closed_trades || []);
       const open = j.open_positions || [];
 
