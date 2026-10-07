@@ -7293,8 +7293,8 @@
       "open_positions_snapshot": []
     }
   ],
-  "last_updated": "2026-10-07 16:15:08 HKT",
-  "last_updated_iso": "2026-10-07T16:15:08.832195+08:00",
+  "last_updated": "2026-10-07 17:07:03 HKT",
+  "last_updated_iso": "2026-10-07T17:07:03.601810+08:00",
   "strategy_revisions": [
     {
       "version": "v1.1",
@@ -7303,5 +7303,5 @@
     }
   ],
   "equity_current": 9715.5487,
-  "last_mark_at": "2026-10-07 16:15:08 HKT"
+  "last_mark_at": "2026-10-07 17:07:03 HKT"
 }
