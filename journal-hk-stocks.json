@@ -34,8 +34,14 @@
       "type": "backfill",
       "evaluated_at": "2026-10-06 17:23:25 HKT",
       "note": "No fills yet; 2800/0700/9988/0005 fail close>20DMA and 20>50DMA."
+    },
+    {
+      "id": "scan-20261007-1019",
+      "type": "scan",
+      "evaluated_at": "2026-10-07 10:19:51 HKT",
+      "note": "HK session scan (intraday ~10:20): 2800 24.76 (20DMA 25.33 < 50DMA 25.79); 0700 422.8 (20DMA 431.57 < 50DMA 446.50); 9988 105.9 (20DMA 107.90 < 50DMA 114.23); 0005 151.7 (20DMA 158.77 < 50DMA 161.34). All fail close>20DMA and 20>50DMA. Flat, no entries."
     }
   ],
-  "last_updated": "2026-10-06 17:23:25 HKT",
-  "last_updated_iso": "2026-10-06T17:23:25+08:00"
+  "last_updated": "2026-10-07 10:19:51 HKT",
+  "last_updated_iso": "2026-10-07T10:19:51+08:00"
 }
