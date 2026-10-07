@@ -7291,10 +7291,130 @@
         }
       },
       "open_positions_snapshot": []
+    },
+    {
+      "id": "sig-20261007-2013",
+      "type": "scheduled_watch",
+      "evaluated_at": "2026-10-07 20:13:33 HKT",
+      "evaluated_at_iso": "2026-10-07T20:13:33.895991+08:00",
+      "data_source": "https://data-api.binance.vision (Binance public market data)",
+      "strategy_version": "v1.1",
+      "note": "Crypto Kickstart sim watch — no new entry, open positions unchanged (no SL/TP hit).",
+      "equity": 9715.5487,
+      "open_positions_count": 0,
+      "actions": {
+        "entries": [],
+        "exits": []
+      },
+      "pairs": {
+        "BTC/USDT": {
+          "price": 83642.98,
+          "last_closed_4h": {
+            "open": 84145.16,
+            "high": 84179.6,
+            "low": 83442.0,
+            "close": 83740.15,
+            "time_hk": "2026-10-07 16:00 HKT"
+          },
+          "forming_4h": {
+            "open": 83740.15,
+            "high": 83766.55,
+            "low": 83596.0,
+            "close": 83642.98,
+            "time_hk": "2026-10-07 20:00 HKT"
+          },
+          "ema20": 85133.8664,
+          "ema50": 84845.6982,
+          "atr14": 772.1851,
+          "adx14": 21.9482,
+          "adx14_6bars_ago": 22.785,
+          "ema20_crosses_last12": 3,
+          "bias_bullish": false,
+          "anti_chop_pass": false,
+          "reclaim": false,
+          "dist_ema20_pct": -1.6371,
+          "entry_signal": false,
+          "entry_blocked_reason": "bias OFF (close ≤ EMA50)；anti-chop FAIL: ADX not rising vs 6ago=22.785；reclaim FAIL: low 83442.0 <= EMA20 85133.8664; close 83740.15 < EMA20×1.0015=85261.5672",
+          "daily_closes_recent": [
+            [
+              "2026-10-02",
+              84518.01
+            ],
+            [
+              "2026-10-03",
+              84753.56
+            ],
+            [
+              "2026-10-04",
+              86530.0
+            ],
+            [
+              "2026-10-05",
+              85766.87
+            ],
+            [
+              "2026-10-06",
+              85549.93
+            ]
+          ]
+        },
+        "ETH/USDT": {
+          "price": 2580.21,
+          "last_closed_4h": {
+            "open": 2616.33,
+            "high": 2619.68,
+            "low": 2565.01,
+            "close": 2578.94,
+            "time_hk": "2026-10-07 16:00 HKT"
+          },
+          "forming_4h": {
+            "open": 2578.94,
+            "high": 2580.47,
+            "low": 2575.73,
+            "close": 2580.21,
+            "time_hk": "2026-10-07 20:00 HKT"
+          },
+          "ema20": 2676.4234,
+          "ema50": 2685.0931,
+          "atr14": 31.0994,
+          "adx14": 21.5577,
+          "adx14_6bars_ago": 15.1942,
+          "ema20_crosses_last12": 5,
+          "bias_bullish": false,
+          "anti_chop_pass": false,
+          "reclaim": false,
+          "dist_ema20_pct": -3.6423,
+          "entry_signal": false,
+          "entry_blocked_reason": "bias OFF (close ≤ EMA50)；anti-chop FAIL: EMA20 crosses12=5>3；reclaim FAIL: low 2565.01 <= EMA20 2676.4234; close 2578.94 < EMA20×1.0015=2680.438",
+          "daily_closes_recent": [
+            [
+              "2026-10-02",
+              2668.59
+            ],
+            [
+              "2026-10-03",
+              2687.23
+            ],
+            [
+              "2026-10-04",
+              2726.94
+            ],
+            [
+              "2026-10-05",
+              2709.98
+            ],
+            [
+              "2026-10-06",
+              2697.49
+            ]
+          ]
+        }
+      },
+      "open_positions_snapshot": []
     }
   ],
-  "last_updated": "2026-10-07 19:07:43 HKT",
-  "last_updated_iso": "2026-10-07T19:07:43.164407+08:00",
+  "last_updated": "2026-10-07 20:19:44 HKT",
+  "last_updated_iso": "2026-10-07T20:19:44.712332+08:00",
   "strategy_revisions": [
     {
       "version": "v1.1",
@@ -7303,5 +7423,5 @@
     }
   ],
   "equity_current": 9715.5487,
-  "last_mark_at": "2026-10-07 19:07:43 HKT"
+  "last_mark_at": "2026-10-07 20:19:44 HKT"
 }
