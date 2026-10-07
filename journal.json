@@ -7173,8 +7173,8 @@
       "news_context": "2026-10-07 早上 BTC 急跌穿 84,000，一小時約 4 億美元多單被強平（只作記錄，唔影響決定）"
     }
   ],
-  "last_updated": "2026-10-07 13:06:53 HKT",
-  "last_updated_iso": "2026-10-07T13:06:53.119908+08:00",
+  "last_updated": "2026-10-07 14:07:37 HKT",
+  "last_updated_iso": "2026-10-07T14:07:37.226725+08:00",
   "strategy_revisions": [
     {
       "version": "v1.1",
@@ -7183,5 +7183,5 @@
     }
   ],
   "equity_current": 9715.5487,
-  "last_mark_at": "2026-10-07 13:06:53 HKT"
+  "last_mark_at": "2026-10-07 14:07:37 HKT"
 }
