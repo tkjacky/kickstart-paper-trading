@@ -7171,10 +7171,130 @@
       },
       "open_positions_snapshot": [],
       "news_context": "2026-10-07 早上 BTC 急跌穿 84,000，一小時約 4 億美元多單被強平（只作記錄，唔影響決定）"
+    },
+    {
+      "id": "sig-20261007-1609",
+      "type": "scheduled_watch",
+      "evaluated_at": "2026-10-07 16:09:36 HKT",
+      "evaluated_at_iso": "2026-10-07T16:09:36.230096+08:00",
+      "data_source": "https://data-api.binance.vision (Binance public market data)",
+      "strategy_version": "v1.1",
+      "note": "Crypto Kickstart sim watch — no new entry, open positions unchanged (no SL/TP hit).",
+      "equity": 9715.5487,
+      "open_positions_count": 0,
+      "actions": {
+        "entries": [],
+        "exits": []
+      },
+      "pairs": {
+        "BTC/USDT": {
+          "price": 84061.75,
+          "last_closed_4h": {
+            "open": 84150.39,
+            "high": 84379.31,
+            "low": 84044.0,
+            "close": 84145.17,
+            "time_hk": "2026-10-07 12:00 HKT"
+          },
+          "forming_4h": {
+            "open": 84145.16,
+            "high": 84150.0,
+            "low": 84022.0,
+            "close": 84044.24,
+            "time_hk": "2026-10-07 16:00 HKT"
+          },
+          "ema20": 85280.5734,
+          "ema50": 84890.8512,
+          "atr14": 774.8455,
+          "adx14": 21.368,
+          "adx14_6bars_ago": 23.2929,
+          "ema20_crosses_last12": 3,
+          "bias_bullish": false,
+          "anti_chop_pass": false,
+          "reclaim": false,
+          "dist_ema20_pct": -1.3314,
+          "entry_signal": false,
+          "entry_blocked_reason": "bias OFF (close ≤ EMA50)；anti-chop FAIL: ADX not rising vs 6ago=23.2929；reclaim FAIL: low 84044.0 <= EMA20 85280.5734; close 84145.17 < EMA20×1.0015=85408.4943",
+          "daily_closes_recent": [
+            [
+              "2026-10-02",
+              84518.01
+            ],
+            [
+              "2026-10-03",
+              84753.56
+            ],
+            [
+              "2026-10-04",
+              86530.0
+            ],
+            [
+              "2026-10-05",
+              85766.87
+            ],
+            [
+              "2026-10-06",
+              85549.93
+            ]
+          ]
+        },
+        "ETH/USDT": {
+          "price": 2615.63,
+          "last_closed_4h": {
+            "open": 2611.14,
+            "high": 2623.83,
+            "low": 2605.24,
+            "close": 2616.32,
+            "time_hk": "2026-10-07 12:00 HKT"
+          },
+          "forming_4h": {
+            "open": 2616.33,
+            "high": 2618.35,
+            "low": 2614.28,
+            "close": 2615.22,
+            "time_hk": "2026-10-07 16:00 HKT"
+          },
+          "ema20": 2686.6848,
+          "ema50": 2689.4295,
+          "atr14": 29.2863,
+          "adx14": 18.7167,
+          "adx14_6bars_ago": 16.1501,
+          "ema20_crosses_last12": 5,
+          "bias_bullish": false,
+          "anti_chop_pass": false,
+          "reclaim": false,
+          "dist_ema20_pct": -2.619,
+          "entry_signal": false,
+          "entry_blocked_reason": "bias OFF (close ≤ EMA50)；anti-chop FAIL: ADX=18.7167<20; EMA20 crosses12=5>3；reclaim FAIL: low 2605.24 <= EMA20 2686.6848; close 2616.32 < EMA20×1.0015=2690.7148",
+          "daily_closes_recent": [
+            [
+              "2026-10-02",
+              2668.59
+            ],
+            [
+              "2026-10-03",
+              2687.23
+            ],
+            [
+              "2026-10-04",
+              2726.94
+            ],
+            [
+              "2026-10-05",
+              2709.98
+            ],
+            [
+              "2026-10-06",
+              2697.49
+            ]
+          ]
+        }
+      },
+      "open_positions_snapshot": []
     }
   ],
-  "last_updated": "2026-10-07 15:08:00 HKT",
-  "last_updated_iso": "2026-10-07T15:08:00.869019+08:00",
+  "last_updated": "2026-10-07 16:15:08 HKT",
+  "last_updated_iso": "2026-10-07T16:15:08.832195+08:00",
   "strategy_revisions": [
     {
       "version": "v1.1",
@@ -7183,5 +7303,5 @@
     }
   ],
   "equity_current": 9715.5487,
-  "last_mark_at": "2026-10-07 15:08:00 HKT"
+  "last_mark_at": "2026-10-07 16:15:08 HKT"
 }
