@@ -14,7 +14,7 @@
   "created_at_iso": "2026-09-30T15:07:00+08:00",
   "starting_equity": 10000.0,
   "equity": 9970.88,
-  "equity_current": 9967.09,
+  "equity_current": 10031.07,
   "fees_slippage_round_trip_pct": 0.0,
   "risk_per_trade_pct": 1.5,
   "max_open_positions": 2,
@@ -45,13 +45,13 @@
       "stop_price": 325.81,
       "take_profit_price": null,
       "quantity": 17,
-      "notional": 5665.59,
+      "notional": 5722.88,
       "risk_amount": 141.78,
       "risk_distance": 8.34,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 333.27,
-      "last_mark_at": "2026-10-09 22:48:09 HKT",
-      "unrealized_net": -14.96
+      "last_mark_price": 336.64,
+      "last_mark_at": "2026-10-10 04:00:00 HKT",
+      "unrealized_net": 42.33
     },
     {
       "id": "pos-spy-20261005-2225",
@@ -70,13 +70,13 @@
       "stop_price": 758.5,
       "take_profit_price": null,
       "quantity": 3,
-      "notional": 2329.02,
+      "notional": 2335.71,
       "risk_amount": 42.35,
       "risk_distance": 14.12,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 776.34,
-      "last_mark_at": "2026-10-09 22:48:09 HKT",
-      "unrealized_net": 11.18
+      "last_mark_price": 778.57,
+      "last_mark_at": "2026-10-10 04:00:00 HKT",
+      "unrealized_net": 17.87
     }
   ],
   "closed_trades": [
@@ -152,8 +152,14 @@
       "type": "scan",
       "evaluated_at": "2026-10-09 22:48:09 HKT",
       "note": "US open scan (Oct 9 ~10:47 ET): AAPL 333.27 (low 330.7 > stop 325.81; gap open 331.79 vs Oct8 340.42; last < 20DMA 335.22 but daily close not final — no exit armed yet). SPY 776.34 (low 775.14 > stop 758.5; > 20DMA 767.49). Oct8 closes both above 20DMA so no next-open exit. No +5% scale / +8% BE. At max 2 positions, no new entries. MTM equity_current 9967.09."
+    },
+    {
+      "id": "mark-20261010-0400",
+      "type": "close_mark",
+      "evaluated_at": "2026-10-10 04:00:00 HKT",
+      "note": "US close mark (Oct 9 session): AAPL close 336.64 vs 20DMA 335.39 (above, +0.75% from entry; low 330.70 > stop 325.81); SPY close 778.57 > 20DMA 767.60 (+0.77%; low 775.14 > stop 758.5). No stop hit, no below_20dma exit armed, no +5% scale, no +8% BE move. No exits. MTM equity_current 10031.07."
     }
   ],
-  "last_updated": "2026-10-09 22:48:09 HKT",
-  "last_updated_iso": "2026-10-09T22:48:09+08:00"
+  "last_updated": "2026-10-10 04:00:00 HKT",
+  "last_updated_iso": "2026-10-10T04:00:00+08:00"
 }
