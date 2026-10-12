@@ -14,7 +14,7 @@
   "created_at_iso": "2026-09-30T15:07:00+08:00",
   "starting_equity": 10000.0,
   "equity": 9970.88,
-  "equity_current": 10031.07,
+  "equity_current": 10107.97,
   "fees_slippage_round_trip_pct": 0.0,
   "risk_per_trade_pct": 1.5,
   "max_open_positions": 2,
@@ -49,9 +49,9 @@
       "risk_amount": 141.78,
       "risk_distance": 8.34,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 336.64,
-      "last_mark_at": "2026-10-10 04:00:00 HKT",
-      "unrealized_net": 42.33
+      "last_mark_price": 341.28,
+      "last_mark_at": "2026-10-12 22:50:31 HKT",
+      "unrealized_net": 121.21
     },
     {
       "id": "pos-spy-20261005-2225",
@@ -74,9 +74,9 @@
       "risk_amount": 42.35,
       "risk_distance": 14.12,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 778.57,
-      "last_mark_at": "2026-10-10 04:00:00 HKT",
-      "unrealized_net": 17.87
+      "last_mark_price": 777.91,
+      "last_mark_at": "2026-10-12 22:50:31 HKT",
+      "unrealized_net": 15.88
     }
   ],
   "closed_trades": [
@@ -158,8 +158,14 @@
       "type": "close_mark",
       "evaluated_at": "2026-10-10 04:00:00 HKT",
       "note": "US close mark (Oct 9 session): AAPL close 336.64 vs 20DMA 335.39 (above, +0.75% from entry; low 330.70 > stop 325.81); SPY close 778.57 > 20DMA 767.60 (+0.77%; low 775.14 > stop 758.5). No stop hit, no below_20dma exit armed, no +5% scale, no +8% BE move. No exits. MTM equity_current 10031.07."
+    },
+    {
+      "id": "scan-20261012-2250",
+      "type": "scan",
+      "evaluated_at": "2026-10-12 22:50:31 HKT",
+      "note": "US open scan (Oct 12 ~22:50 HKT / Columbus Day equities OPEN): AAPL 341.28 (low 337.6 > stop 325.81; +2.13% vs entry; >20DMA 335.8; scale@350.86 / BE@360.88 not hit). SPY 777.91 (low 777.6 > stop 758.5; +0.69%; >20DMA 768.55; scale@811.25 / BE@834.42 not hit). Oct9 closes above 20DMA — no next-open exit. At max 2, no new entries. MTM equity_current 10107.97."
     }
   ],
-  "last_updated": "2026-10-10 04:00:00 HKT",
-  "last_updated_iso": "2026-10-10T04:00:00+08:00"
+  "last_updated": "2026-10-12 22:50:31 HKT",
+  "last_updated_iso": "2026-10-12T22:50:31+08:00"
 }
