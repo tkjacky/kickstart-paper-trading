@@ -52,8 +52,14 @@
       "type": "scan",
       "evaluated_at": "2026-10-09 11:01:27 HKT",
       "note": "HK session scan (intraday ~11:00): 2800 24.78 (20DMA 25.23 < 50DMA 25.74); 0700 420.2 (20DMA 430.06 < 50DMA 444.32); 9988 106.2 (20DMA 107.56 < 50DMA 113.92); 0005 145.0 (20DMA 156.53 < 50DMA 160.33). All fail close>20DMA and 20>50DMA. Flat, no entries."
+    },
+    {
+      "id": "scan-20261012-1018",
+      "type": "scan",
+      "evaluated_at": "2026-10-12 10:18:15 HKT",
+      "note": "HK session scan (intraday ~10:17): 2800 25.04 (20DMA 25.15 < 50DMA 25.67); 0700 427.0 (20DMA 430.22 < 50DMA 443.45); 9988 109.5 (20DMA 107.70 < 50DMA 113.78; gap+3.1% skip anyway); 0005 148.3 (20DMA 155.79 < 50DMA 159.95). All fail close>20DMA and 20>50DMA. Flat, no entries. NYSE stocks open later today (Columbus Day not an equity holiday) but US session not live at HK morning — no US action; US marks remain Oct9 close."
     }
   ],
-  "last_updated": "2026-10-09 11:01:27 HKT",
-  "last_updated_iso": "2026-10-09T11:01:27+08:00"
+  "last_updated": "2026-10-12 10:18:15 HKT",
+  "last_updated_iso": "2026-10-12T10:18:15+08:00"
 }
