@@ -14,7 +14,7 @@
   "created_at_iso": "2026-09-30T15:07:00+08:00",
   "starting_equity": 10000.0,
   "equity": 9970.88,
-  "equity_current": 10103.27,
+  "equity_current": 10194.36,
   "fees_slippage_round_trip_pct": 0.0,
   "risk_per_trade_pct": 1.5,
   "max_open_positions": 2,
@@ -49,9 +49,9 @@
       "risk_amount": 141.78,
       "risk_distance": 8.34,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 340.97,
-      "last_mark_at": "2026-10-13 04:00:00 HKT",
-      "unrealized_net": 115.94
+      "last_mark_price": 346.425,
+      "last_mark_at": "2026-10-13 22:31:30 HKT",
+      "unrealized_net": 208.67
     },
     {
       "id": "pos-spy-20261005-2225",
@@ -74,9 +74,9 @@
       "risk_amount": 42.35,
       "risk_distance": 14.12,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 778.1,
-      "last_mark_at": "2026-10-13 04:00:00 HKT",
-      "unrealized_net": 16.45
+      "last_mark_price": 777.55,
+      "last_mark_at": "2026-10-13 22:31:30 HKT",
+      "unrealized_net": 14.8
     }
   ],
   "closed_trades": [
@@ -176,8 +176,14 @@
       "type": "scan",
       "evaluated_at": "2026-10-13 10:19:30 HKT",
       "note": "HK-morning companion note (US cash CLOSED): kept Oct12 close marks AAPL 340.97 (+2.04% vs entry; stop 325.81 intact; >20DMA 335.78) SPY 778.1 (+0.71%; stop 758.5 intact; >20DMA 768.56). No stop/scale/BE/below_20dma action at HK morning. At max 2. MTM equity_current 10103.27."
+    },
+    {
+      "id": "scan-20261013-2231",
+      "type": "scan",
+      "evaluated_at": "2026-10-13 22:31:30 HKT",
+      "note": "US open scan (Oct 13 ~22:31 HKT): AAPL 346.425 (low 341.12 > stop 325.81; +3.67% vs entry; >20DMA 336.54; scale@350.86 / BE@360.88 not hit). SPY 777.55 (low 777.17 > stop 758.5; +0.64%; >20DMA 769.66; scale@811.25 / BE@834.42 not hit). Prior close (Oct12) both above 20DMA — no next-open exit. At max 2, no new entries. Universe: QQQ trend_ok near 20DMA; MSFT extended >3% skip; NVDA below 20DMA. MTM equity_current 10194.36."
     }
   ],
-  "last_updated": "2026-10-13 10:19:30 HKT",
-  "last_updated_iso": "2026-10-13T10:19:30+08:00"
+  "last_updated": "2026-10-13 22:31:30 HKT",
+  "last_updated_iso": "2026-10-13T22:31:30+08:00"
 }
