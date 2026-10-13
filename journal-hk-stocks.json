@@ -58,8 +58,14 @@
       "type": "scan",
       "evaluated_at": "2026-10-12 10:18:15 HKT",
       "note": "HK session scan (intraday ~10:17): 2800 25.04 (20DMA 25.15 < 50DMA 25.67); 0700 427.0 (20DMA 430.22 < 50DMA 443.45); 9988 109.5 (20DMA 107.70 < 50DMA 113.78; gap+3.1% skip anyway); 0005 148.3 (20DMA 155.79 < 50DMA 159.95). All fail close>20DMA and 20>50DMA. Flat, no entries. NYSE stocks open later today (Columbus Day not an equity holiday) but US session not live at HK morning — no US action; US marks remain Oct9 close."
+    },
+    {
+      "id": "scan-20261013-1019",
+      "type": "scan",
+      "evaluated_at": "2026-10-13 10:19:30 HKT",
+      "note": "HK session scan (intraday ~10:19): 2800 24.74 (20DMA 25.14 < 50DMA 25.67); 0700 420.6 (20DMA 429.9 < 50DMA 443.32); 9988 105.8 (20DMA 107.52 < 50DMA 113.71); 0005 149.3 (20DMA 155.84 < 50DMA 159.97). All fail close>20DMA and 20>50DMA. Flat, no entries. Yahoo daily history missing 2026-10-12 bar (data gap; Oct12 morning scan had live prices); using live Oct13. US cash session CLOSED — marks kept from Oct12 close (AAPL 340.97 SPY 778.1); stops intact; max 2 held."
     }
   ],
-  "last_updated": "2026-10-12 10:18:15 HKT",
-  "last_updated_iso": "2026-10-12T10:18:15+08:00"
+  "last_updated": "2026-10-13 10:19:30 HKT",
+  "last_updated_iso": "2026-10-13T10:19:30+08:00"
 }
