@@ -14,7 +14,7 @@
   "created_at_iso": "2026-09-30T15:07:00+08:00",
   "starting_equity": 10000.0,
   "equity": 9970.88,
-  "equity_current": 10108.1,
+  "equity_current": 10144.67,
   "fees_slippage_round_trip_pct": 0.0,
   "risk_per_trade_pct": 1.5,
   "max_open_positions": 2,
@@ -49,9 +49,9 @@
       "risk_amount": 141.78,
       "risk_distance": 8.34,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 341.27,
-      "last_mark_at": "2026-10-14 04:48:00 HKT",
-      "unrealized_net": 121.04
+      "last_mark_price": 344.35,
+      "last_mark_at": "2026-10-14 22:14:27 HKT",
+      "unrealized_net": 173.4
     },
     {
       "id": "pos-spy-20261005-2225",
@@ -74,9 +74,9 @@
       "risk_amount": 42.35,
       "risk_distance": 14.12,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 778.01,
-      "last_mark_at": "2026-10-14 04:48:00 HKT",
-      "unrealized_net": 16.18
+      "last_mark_price": 772.745,
+      "last_mark_at": "2026-10-14 22:14:27 HKT",
+      "unrealized_net": 0.39
     }
   ],
   "closed_trades": [
@@ -188,8 +188,14 @@
       "type": "close_mark",
       "evaluated_at": "2026-10-14 04:48:00 HKT",
       "note": "US close mark (Oct 13 session): AAPL close 341.27 vs 20DMA 336.28 (above, +2.13% from entry; low 340.74 > stop 325.81); SPY close 778.01 > 20DMA 769.68 (+0.7%; low 775.95 > stop 758.5). No stop hit, no below_20dma exit armed, no +5% scale, no +8% BE move, no trail. No exits. MTM equity_current 10108.1."
+    },
+    {
+      "id": "scan-20261014-2214",
+      "type": "scan",
+      "evaluated_at": "2026-10-14 22:14:27 HKT",
+      "note": "US open scan (Oct 14 ~22:14 HKT): AAPL 344.35 (low 343.65 > stop 325.81; +3.05% vs entry; >20DMA 336.86; scale@350.86 / BE@360.88 not hit). SPY 772.745 (low 772.58 > stop 758.5; +0.02%; >20DMA 770.71; scale@811.25 / BE@834.42 not hit). Prior close (Oct13) both above 20DMA — no next-open exit. At max 2, no new entries. Universe: QQQ below 20DMA; MSFT extended >3% skip; NVDA below 20DMA; SPY pullback_ok but already held. HK watch still fail trend (closed session). MTM equity_current 10144.67."
     }
   ],
-  "last_updated": "2026-10-14 10:13:24 HKT",
-  "last_updated_iso": "2026-10-14T10:13:24+08:00"
+  "last_updated": "2026-10-14 22:14:27 HKT",
+  "last_updated_iso": "2026-10-14T22:14:27+08:00"
 }
