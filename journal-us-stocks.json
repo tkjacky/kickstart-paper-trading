@@ -190,6 +190,6 @@
       "note": "US close mark (Oct 13 session): AAPL close 341.27 vs 20DMA 336.28 (above, +2.13% from entry; low 340.74 > stop 325.81); SPY close 778.01 > 20DMA 769.68 (+0.7%; low 775.95 > stop 758.5). No stop hit, no below_20dma exit armed, no +5% scale, no +8% BE move, no trail. No exits. MTM equity_current 10108.1."
     }
   ],
-  "last_updated": "2026-10-14 04:48:00 HKT",
-  "last_updated_iso": "2026-10-14T04:48:00+08:00"
+  "last_updated": "2026-10-14 10:13:24 HKT",
+  "last_updated_iso": "2026-10-14T10:13:24+08:00"
 }
