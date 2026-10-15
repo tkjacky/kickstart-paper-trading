@@ -14,7 +14,7 @@
   "created_at_iso": "2026-09-30T15:07:00+08:00",
   "starting_equity": 10000.0,
   "equity": 9951.78,
-  "equity_current": 10134.19,
+  "equity_current": 10085.23,
   "fees_slippage_round_trip_pct": 0.0,
   "risk_per_trade_pct": 1.5,
   "max_open_positions": 2,
@@ -49,9 +49,9 @@
       "risk_amount": 141.78,
       "risk_distance": 8.34,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 344.88,
-      "last_mark_at": "2026-10-15 22:29:30 HKT",
-      "unrealized_net": 182.41,
+      "last_mark_price": 342.0,
+      "last_mark_at": "2026-10-16 04:41:00 HKT",
+      "unrealized_net": 133.45,
       "pending_exit": false
     }
   ],
@@ -231,8 +231,14 @@
       "type": "scan",
       "evaluated_at": "2026-10-15 22:29:30 HKT",
       "note": "US open scan (Oct 15 ~22:29 HKT): SPY EXIT below_20dma @ open 766.25 (3 sh; entry 772.615; pnl -19.1; r -0.45). AAPL 344.88 (low 344.3 > stop 325.81; +3.21% vs entry; >20DMA 337.2; scale@350.86 / BE@360.88 not hit). After exit: 1 open (AAPL). Universe: SPY/QQQ/NVDA fail trend; MSFT extended >3% skip; no new entry. HK watch closed session still fail trend. MTM equity_current 10134.19."
+    },
+    {
+      "id": "mark-20261016-0441",
+      "type": "close_mark",
+      "evaluated_at": "2026-10-16 04:41:00 HKT",
+      "note": "US close mark (Oct 15 session): AAPL close 342.00 vs 20DMA 337.06 (above, +2.35% from entry; low 341.60 > stop 325.81); high 347.85 < scale@350.86. No stop hit, no below_20dma exit armed, no +5% scale, no +8% BE move, no trail. No exits. MTM equity_current 10085.23."
     }
   ],
-  "last_updated": "2026-10-15 22:29:30 HKT",
-  "last_updated_iso": "2026-10-15T22:29:30+08:00"
+  "last_updated": "2026-10-16 04:41:00 HKT",
+  "last_updated_iso": "2026-10-16T04:41:00+08:00"
 }
