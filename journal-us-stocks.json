@@ -13,8 +13,8 @@
   "created_at": "2026-09-30 15:07:00 HKT",
   "created_at_iso": "2026-09-30T15:07:00+08:00",
   "starting_equity": 10000.0,
-  "equity": 9970.88,
-  "equity_current": 10111.6,
+  "equity": 9951.78,
+  "equity_current": 10134.19,
   "fees_slippage_round_trip_pct": 0.0,
   "risk_per_trade_pct": 1.5,
   "max_open_positions": 2,
@@ -45,42 +45,14 @@
       "stop_price": 325.81,
       "take_profit_price": null,
       "quantity": 17,
-      "notional": 5801.59,
+      "notional": 5680.55,
       "risk_amount": 141.78,
       "risk_distance": 8.34,
       "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 342.96,
-      "last_mark_at": "2026-10-15 04:44:00 HKT",
-      "unrealized_net": 149.77,
+      "last_mark_price": 344.88,
+      "last_mark_at": "2026-10-15 22:29:30 HKT",
+      "unrealized_net": 182.41,
       "pending_exit": false
-    },
-    {
-      "id": "pos-spy-20261005-2225",
-      "pair": "SPY",
-      "market": "US",
-      "currency": "USD",
-      "side": "long",
-      "status": "open",
-      "opened_at": "2026-10-05 22:25:11 HKT",
-      "opened_at_iso": "2026-10-05T22:25:11+08:00",
-      "signal_at": "2026-10-05 22:12:00 HKT",
-      "signal_price": 772.0,
-      "fill_price": 772.615,
-      "delay_hours": 0.22,
-      "entry_price": 772.615,
-      "stop_price": 758.5,
-      "take_profit_price": null,
-      "quantity": 3,
-      "notional": 2334.03,
-      "risk_amount": 42.35,
-      "risk_distance": 14.12,
-      "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
-      "last_mark_price": 769.6,
-      "last_mark_at": "2026-10-15 04:44:00 HKT",
-      "unrealized_net": -9.05,
-      "pending_exit": true,
-      "pending_exit_reason": "below_20dma",
-      "pending_exit_note": "Oct 14 close 769.60 < 20DMA 770.55; paper exit next US session open."
     }
   ],
   "closed_trades": [
@@ -118,6 +90,49 @@
       "r_multiple": -0.26,
       "equity_before": 10000.0,
       "equity_after": 9970.88
+    },
+    {
+      "id": "pos-spy-20261005-2225",
+      "pair": "SPY",
+      "market": "US",
+      "currency": "USD",
+      "side": "long",
+      "status": "closed",
+      "opened_at": "2026-10-05 22:25:11 HKT",
+      "opened_at_iso": "2026-10-05T22:25:11+08:00",
+      "signal_at": "2026-10-05 22:12:00 HKT",
+      "signal_price": 772.0,
+      "fill_price": 772.615,
+      "delay_hours": 0.22,
+      "entry_price": 772.615,
+      "stop_price": 758.5,
+      "take_profit_price": null,
+      "quantity": 3,
+      "notional": 2334.03,
+      "risk_amount": 42.35,
+      "risk_distance": 14.12,
+      "signal_reason": "Close > 20DMA, 20DMA > 50DMA; pullback to 20DMA (within 1.5%).",
+      "closed_at": "2026-10-15 22:29:30 HKT",
+      "closed_at_iso": "2026-10-15T22:29:30+08:00",
+      "exit_signal_price": 769.6,
+      "exit_price": 766.25,
+      "exit_delay_hours": 0.0,
+      "exit_reason": "below_20dma",
+      "exit_note": "Oct 14 close below 20DMA; paper exit next US session open.",
+      "gross_pnl": -19.1,
+      "fees": 0.0,
+      "net_pnl": -19.1,
+      "r_multiple": -0.45,
+      "equity_before": 9970.88,
+      "equity_after": 9951.78,
+      "entry_news_tags": [
+        "none"
+      ],
+      "entry_news_note": "",
+      "exit_news_tags": [
+        "cpi"
+      ],
+      "exit_news_note": "美國 PPI 大升超預期，股市回落"
     }
   ],
   "signals_log": [
@@ -210,8 +225,14 @@
       "type": "scan",
       "evaluated_at": "2026-10-15 10:22:10 HKT",
       "note": "HK-morning companion note (US cash CLOSED): kept Oct14 close marks AAPL 342.96 (+2.64% vs entry; stop 325.81 intact; >20DMA 336.81) SPY 769.6 (-0.39%; stop 758.5 intact; <20DMA 770.55; pending_exit below_20dma armed for next US open). No stop/scale/BE action at HK morning. At max 2. MTM equity_current 10111.6."
+    },
+    {
+      "id": "scan-20261015-2229",
+      "type": "scan",
+      "evaluated_at": "2026-10-15 22:29:30 HKT",
+      "note": "US open scan (Oct 15 ~22:29 HKT): SPY EXIT below_20dma @ open 766.25 (3 sh; entry 772.615; pnl -19.1; r -0.45). AAPL 344.88 (low 344.3 > stop 325.81; +3.21% vs entry; >20DMA 337.2; scale@350.86 / BE@360.88 not hit). After exit: 1 open (AAPL). Universe: SPY/QQQ/NVDA fail trend; MSFT extended >3% skip; no new entry. HK watch closed session still fail trend. MTM equity_current 10134.19."
     }
   ],
-  "last_updated": "2026-10-15 10:22:10 HKT",
-  "last_updated_iso": "2026-10-15T10:22:10+08:00"
+  "last_updated": "2026-10-15 22:29:30 HKT",
+  "last_updated_iso": "2026-10-15T22:29:30+08:00"
 }
