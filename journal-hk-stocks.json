@@ -70,8 +70,14 @@
       "type": "scan",
       "evaluated_at": "2026-10-14 10:13:24 HKT",
       "note": "HK session scan (intraday ~10:13): 2800 24.98 (20DMA 25.12 < 50DMA 25.64); 0700 420.0 (20DMA 428.95 < 50DMA 440.77); 9988 109.0 (20DMA 107.79 < 50DMA 113.06; close>20 but 20<50); 0005 149.1 (20DMA 154.54 < 50DMA 159.28). All fail close>20DMA and 20>50DMA. Flat, no entries. US cash session not live at HK morning — marks kept from Oct13 close (AAPL 341.27 SPY 778.01); stops intact; max 2 held."
+    },
+    {
+      "id": "scan-20261015-1022",
+      "type": "scan",
+      "evaluated_at": "2026-10-15 10:22:10 HKT",
+      "note": "HK session scan (intraday ~10:22): 2800 24.74 (20DMA 25.09 < 50DMA 25.61); 0700 418.4 (20DMA 428.36 < 50DMA 439.356); 9988 107.5 (20DMA 107.93 < 50DMA 112.68); 0005 147.1 (20DMA 153.795 < 50DMA 158.9716). All fail close>20DMA and 20>50DMA. Flat, no entries. US cash session not live at HK morning — marks kept from Oct14 close (AAPL 342.96 SPY 769.6); SPY pending_exit below_20dma for next US open; AAPL stop 325.81 intact; max 2 held."
     }
   ],
-  "last_updated": "2026-10-14 10:13:24 HKT",
-  "last_updated_iso": "2026-10-14T10:13:24+08:00"
+  "last_updated": "2026-10-15 10:22:10 HKT",
+  "last_updated_iso": "2026-10-15T10:22:10+08:00"
 }

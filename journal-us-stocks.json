@@ -204,8 +204,14 @@
       "type": "close_mark",
       "evaluated_at": "2026-10-15 04:44:00 HKT",
       "note": "US close mark (Oct 14 session): AAPL close 342.96 vs 20DMA 336.81 (above, +2.64% from entry; low 341.72 > stop 325.81); SPY close 769.60 < 20DMA 770.55 (-0.39%; low 766.71 > stop 758.5) — below_20dma exit ARMED for next open. No stop hit, no +5% scale, no +8% BE move, no trail. No exits filled. MTM equity_current 10111.6."
+    },
+    {
+      "id": "scan-20261015-1022",
+      "type": "scan",
+      "evaluated_at": "2026-10-15 10:22:10 HKT",
+      "note": "HK-morning companion note (US cash CLOSED): kept Oct14 close marks AAPL 342.96 (+2.64% vs entry; stop 325.81 intact; >20DMA 336.81) SPY 769.6 (-0.39%; stop 758.5 intact; <20DMA 770.55; pending_exit below_20dma armed for next US open). No stop/scale/BE action at HK morning. At max 2. MTM equity_current 10111.6."
     }
   ],
-  "last_updated": "2026-10-15 04:44:00 HKT",
-  "last_updated_iso": "2026-10-15T04:44:00+08:00"
+  "last_updated": "2026-10-15 10:22:10 HKT",
+  "last_updated_iso": "2026-10-15T10:22:10+08:00"
 }
