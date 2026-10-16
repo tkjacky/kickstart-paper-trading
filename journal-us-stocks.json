@@ -237,8 +237,14 @@
       "type": "close_mark",
       "evaluated_at": "2026-10-16 04:41:00 HKT",
       "note": "US close mark (Oct 15 session): AAPL close 342.00 vs 20DMA 337.06 (above, +2.35% from entry; low 341.60 > stop 325.81); high 347.85 < scale@350.86. No stop hit, no below_20dma exit armed, no +5% scale, no +8% BE move, no trail. No exits. MTM equity_current 10085.23."
+    },
+    {
+      "id": "scan-20261016-1016",
+      "type": "scan",
+      "evaluated_at": "2026-10-16 10:16:47 HKT",
+      "note": "HK-morning companion note (US cash CLOSED): kept Oct15 close marks AAPL 342.00 (+2.35% vs entry; stop 325.81 intact; >20DMA 337.06; high 347.85 < scale@350.86; AH overnight ~340.67 still >> stop). No stop/scale/BE/below_20dma action at HK morning. 1 open. MTM equity_current 10085.23. Friday weekly P&L due."
     }
   ],
-  "last_updated": "2026-10-16 04:41:00 HKT",
-  "last_updated_iso": "2026-10-16T04:41:00+08:00"
+  "last_updated": "2026-10-16 10:16:47 HKT",
+  "last_updated_iso": "2026-10-16T10:16:47+08:00"
 }

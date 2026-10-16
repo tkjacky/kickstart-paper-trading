@@ -76,8 +76,14 @@
       "type": "scan",
       "evaluated_at": "2026-10-15 10:22:10 HKT",
       "note": "HK session scan (intraday ~10:22): 2800 24.74 (20DMA 25.09 < 50DMA 25.61); 0700 418.4 (20DMA 428.36 < 50DMA 439.356); 9988 107.5 (20DMA 107.93 < 50DMA 112.68); 0005 147.1 (20DMA 153.795 < 50DMA 158.9716). All fail close>20DMA and 20>50DMA. Flat, no entries. US cash session not live at HK morning — marks kept from Oct14 close (AAPL 342.96 SPY 769.6); SPY pending_exit below_20dma for next US open; AAPL stop 325.81 intact; max 2 held."
+    },
+    {
+      "id": "scan-20261016-1016",
+      "type": "scan",
+      "evaluated_at": "2026-10-16 10:16:47 HKT",
+      "note": "HK session scan (intraday ~10:16): 2800 24.96 (20DMA 25.084 < 50DMA 25.588); 0700 424.6 (20DMA 428.27 < 50DMA 438.256); 9988 109.4 (20DMA 108.09 < 50DMA 112.358; close>20 but 20<50; gap+2.26% skip anyway); 0005 148.8 (20DMA 153.285 < 50DMA 158.777). All fail close>20DMA and 20>50DMA. Flat, no entries. US cash session CLOSED — marks kept from Oct15 close (AAPL 342.00 stop 325.81 intact; +2.35%; scale@350.86 not hit). Friday weekly P&L due."
     }
   ],
-  "last_updated": "2026-10-15 10:22:10 HKT",
-  "last_updated_iso": "2026-10-15T10:22:10+08:00"
+  "last_updated": "2026-10-16 10:16:47 HKT",
+  "last_updated_iso": "2026-10-16T10:16:47+08:00"
 }
